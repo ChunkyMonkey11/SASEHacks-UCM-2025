@@ -1,1 +1,5 @@
-# This is the main.py file for our code.
+import nltk
+import spacy
+import PyPDF2
+from docx import Document
+from sklearn import *
