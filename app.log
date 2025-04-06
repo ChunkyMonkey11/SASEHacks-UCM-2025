@@ -1,0 +1,355 @@
+2025-04-06 11:40:19,424 - __main__ - INFO - Upload folder created/verified at: C:\Users\Revant\SASEHacks-UCM-2025\uploads
+2025-04-06 11:40:19,435 - werkzeug - WARNING -  * Debugger is active!
+2025-04-06 11:40:19,439 - werkzeug - INFO -  * Debugger PIN: 104-714-205
+2025-04-06 11:40:20,189 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 11:40:20,269 - __main__ - DEBUG - Starting resume analysis
+2025-04-06 11:40:20,271 - __main__ - DEBUG - Saving file to: uploads\Revant_Patel_Resume_For_LG_Software_Engineering_Intern.pdf
+2025-04-06 11:40:20,272 - __main__ - DEBUG - File saved successfully at: uploads\Revant_Patel_Resume_For_LG_Software_Engineering_Intern.pdf
+2025-04-06 11:40:20,309 - __main__ - DEBUG - Successfully extracted text. Length: 3534
+2025-04-06 11:40:20,311 - __main__ - DEBUG - Cleaned up uploaded file
+2025-04-06 11:40:20,311 - __main__ - DEBUG - Calculating semantic similarity
+2025-04-06 11:40:20,314 - __main__ - DEBUG - Finding required skills
+2025-04-06 11:40:20,315 - __main__ - DEBUG - Extracting technical terms
+2025-04-06 11:40:20,969 - __main__ - DEBUG - Matching skills
+2025-04-06 11:40:20,988 - __main__ - DEBUG - Analysis complete. Match percentage: 54.22537682790984
+2025-04-06 11:40:20,988 - werkzeug - INFO - 127.0.0.1 - - [06/Apr/2025 11:40:20] "POST /analyze HTTP/1.1" 200 -
+2025-04-06 11:41:14,634 - __main__ - INFO - Upload folder created/verified at: C:\Users\Revant\SASEHacks-UCM-2025\uploads
+2025-04-06 11:41:14,646 - werkzeug - INFO -  * Restarting with stat
+2025-04-06 11:41:16,369 - __main__ - INFO - Upload folder created/verified at: C:\Users\Revant\SASEHacks-UCM-2025\uploads
+2025-04-06 11:41:16,379 - werkzeug - WARNING -  * Debugger is active!
+2025-04-06 11:41:16,383 - werkzeug - INFO -  * Debugger PIN: 104-714-205
+2025-04-06 11:41:17,113 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 11:41:18,459 - werkzeug - INFO - 127.0.0.1 - - [06/Apr/2025 11:41:18] "GET / HTTP/1.1" 200 -
+2025-04-06 11:43:46,011 - __main__ - DEBUG - Starting resume analysis
+2025-04-06 11:43:46,012 - __main__ - DEBUG - Saving file to: uploads\Revant_Patel_Resume_For_LG_Software_Engineering_Intern.pdf
+2025-04-06 11:43:46,013 - __main__ - DEBUG - File saved successfully at: uploads\Revant_Patel_Resume_For_LG_Software_Engineering_Intern.pdf
+2025-04-06 11:43:46,049 - __main__ - DEBUG - Successfully extracted text. Length: 3534
+2025-04-06 11:43:46,050 - __main__ - DEBUG - Cleaned up uploaded file
+2025-04-06 11:43:46,050 - __main__ - DEBUG - Calculating semantic similarity
+2025-04-06 11:43:46,054 - __main__ - DEBUG - Finding required skills
+2025-04-06 11:43:46,055 - __main__ - DEBUG - Extracting technical terms
+2025-04-06 11:43:46,720 - __main__ - DEBUG - Matching skills
+2025-04-06 11:43:46,785 - __main__ - DEBUG - Analysis complete. Match percentage: 40.136679116867086
+2025-04-06 11:43:46,786 - werkzeug - INFO - 127.0.0.1 - - [06/Apr/2025 11:43:46] "POST /analyze HTTP/1.1" 200 -
+2025-04-06 11:45:14,134 - __main__ - DEBUG - Starting resume analysis
+2025-04-06 11:45:14,135 - __main__ - DEBUG - Saving file to: uploads\Revant_Patel_Resume_For_LG_Software_Engineering_Intern.pdf
+2025-04-06 11:45:14,136 - __main__ - DEBUG - File saved successfully at: uploads\Revant_Patel_Resume_For_LG_Software_Engineering_Intern.pdf
+2025-04-06 11:45:14,173 - __main__ - DEBUG - Successfully extracted text. Length: 3534
+2025-04-06 11:45:14,174 - __main__ - DEBUG - Cleaned up uploaded file
+2025-04-06 11:45:14,174 - __main__ - DEBUG - Calculating semantic similarity
+2025-04-06 11:45:14,179 - __main__ - DEBUG - Finding required skills
+2025-04-06 11:45:14,180 - __main__ - DEBUG - Extracting technical terms
+2025-04-06 11:45:14,184 - __main__ - DEBUG - Matching skills
+2025-04-06 11:45:14,253 - __main__ - DEBUG - Analysis complete. Match percentage: 40.136679116867086
+2025-04-06 11:45:14,253 - werkzeug - INFO - 127.0.0.1 - - [06/Apr/2025 11:45:14] "POST /analyze HTTP/1.1" 200 -
+2025-04-06 11:45:23,347 - __main__ - DEBUG - Starting resume analysis
+2025-04-06 11:45:23,349 - __main__ - DEBUG - Saving file to: uploads\Revant_Patel_Resume_For_LG_Software_Engineering_Intern.pdf
+2025-04-06 11:45:23,350 - __main__ - DEBUG - File saved successfully at: uploads\Revant_Patel_Resume_For_LG_Software_Engineering_Intern.pdf
+2025-04-06 11:45:23,385 - __main__ - DEBUG - Successfully extracted text. Length: 3534
+2025-04-06 11:45:23,386 - __main__ - DEBUG - Cleaned up uploaded file
+2025-04-06 11:45:23,386 - __main__ - DEBUG - Calculating semantic similarity
+2025-04-06 11:45:23,389 - __main__ - DEBUG - Finding required skills
+2025-04-06 11:45:23,390 - __main__ - DEBUG - Extracting technical terms
+2025-04-06 11:45:23,393 - __main__ - DEBUG - Matching skills
+2025-04-06 11:45:23,454 - __main__ - DEBUG - Analysis complete. Match percentage: 40.136679116867086
+2025-04-06 11:45:23,455 - werkzeug - INFO - 127.0.0.1 - - [06/Apr/2025 11:45:23] "POST /analyze HTTP/1.1" 200 -
+2025-04-06 11:45:49,435 - werkzeug - INFO -  * Detected change in 'c:\\Users\\Revant\\SASEHacks-UCM-2025\\app.py', reloading
+2025-04-06 11:45:49,912 - werkzeug - INFO -  * Restarting with stat
+2025-04-06 11:45:51,862 - __main__ - INFO - Upload folder created/verified at: C:\Users\Revant\SASEHacks-UCM-2025\uploads
+2025-04-06 11:45:51,873 - werkzeug - WARNING -  * Debugger is active!
+2025-04-06 11:45:51,878 - werkzeug - INFO -  * Debugger PIN: 104-714-205
+2025-04-06 11:45:52,628 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 11:45:55,628 - __main__ - DEBUG - Starting resume analysis
+2025-04-06 11:45:55,629 - __main__ - DEBUG - Saving file to: uploads\Revant_Patel_Resume_For_LG_Software_Engineering_Intern.pdf
+2025-04-06 11:45:55,630 - __main__ - DEBUG - File saved successfully at: uploads\Revant_Patel_Resume_For_LG_Software_Engineering_Intern.pdf
+2025-04-06 11:45:55,666 - __main__ - DEBUG - Successfully extracted text. Length: 3534
+2025-04-06 11:45:55,667 - __main__ - DEBUG - Cleaned up uploaded file
+2025-04-06 11:45:55,667 - __main__ - DEBUG - Calculating semantic similarity
+2025-04-06 11:45:55,671 - __main__ - DEBUG - Finding required skills
+2025-04-06 11:45:55,672 - __main__ - DEBUG - Extracting technical terms
+2025-04-06 11:45:56,329 - __main__ - DEBUG - Matching skills
+2025-04-06 11:45:56,390 - __main__ - DEBUG - Analysis complete. Match percentage: 40.136679116867086
+2025-04-06 11:45:56,390 - __main__ - DEBUG - Matched skills: {'database': 0.4693333333333334, 'postgresql': 0.64, 'react': 0.64, 'software engineering': 0.4415384615384615, 'development': 0.72, 'python': 0.8999999999999999, 'go': 0.72, 'engineering': 0.5270588235294117, 'software development': 0.4830967741935484, 'testing': 0.5599999999999999, 'sql': 0.72, 'mongodb': 0.39822222222222226, 'code review': 0.37333333333333335, 'programming': 0.72, 'mysql': 0.49600000000000005, 'rest api': 0.43054545454545456}
+2025-04-06 11:45:56,390 - __main__ - DEBUG - Categorized missing: {'Programming Languages': [{'skill': 'javascript', 'weight': 1.3499999999999999, 'is_critical': True}, {'skill': 'java', 'weight': 1.3499999999999999, 'is_critical': True}], 'Web Development': [{'skill': 'vue', 'weight': 0.64, 'is_critical': False}, {'skill': 'angular', 'weight': 0.64, 'is_critical': False}], 'Databases': [], 'Cloud & DevOps': [{'skill': 'git', 'weight': 1.3499999999999999, 'is_critical': True}], 'Software Development': [{'skill': 'agile', 'weight': 0.96, 'is_critical': True}, {'skill': 'debugging', 'weight': 0.8999999999999999, 'is_critical': False}], 'AI & Data': [], 'Soft Skills': []}
+2025-04-06 11:45:56,391 - __main__ - DEBUG - Category importance: {'Programming Languages': 2.6999999999999997, 'Web Development': 1.1520000000000001, 'Databases': 0, 'Cloud & DevOps': 1.2149999999999999, 'Software Development': 1.488, 'AI & Data': 0, 'Soft Skills': 0}
+2025-04-06 11:45:56,391 - __main__ - DEBUG - Sending response data: {'match_percentage': np.float64(40.1), 'semantic_similarity': np.float64(4.3), 'matched_skills': {'database': 0.4693333333333334, 'postgresql': 0.64, 'react': 0.64, 'software engineering': 0.4415384615384615, 'development': 0.72, 'python': 0.8999999999999999, 'go': 0.72, 'engineering': 0.5270588235294117, 'software development': 0.4830967741935484, 'testing': 0.5599999999999999, 'sql': 0.72, 'mongodb': 0.39822222222222226, 'code review': 0.37333333333333335, 'programming': 0.72, 'mysql': 0.49600000000000005, 'rest api': 0.43054545454545456}, 'missing_skills': {'Programming Languages': [{'skill': 'javascript', 'weight': 1.3499999999999999, 'is_critical': True}, {'skill': 'java', 'weight': 1.3499999999999999, 'is_critical': True}], 'Web Development': [{'skill': 'vue', 'weight': 0.64, 'is_critical': False}, {'skill': 'angular', 'weight': 0.64, 'is_critical': False}], 'Databases': [], 'Cloud & DevOps': [{'skill': 'git', 'weight': 1.3499999999999999, 'is_critical': True}], 'Software Development': [{'skill': 'agile', 'weight': 0.96, 'is_critical': True}, {'skill': 'debugging', 'weight': 0.8999999999999999, 'is_critical': False}], 'AI & Data': [], 'Soft Skills': []}, 'category_importance': {'Programming Languages': 2.6999999999999997, 'Web Development': 1.1520000000000001, 'Databases': 0, 'Cloud & DevOps': 1.2149999999999999, 'Software Development': 1.488, 'AI & Data': 0, 'Soft Skills': 0}}
+2025-04-06 11:45:56,392 - werkzeug - INFO - 127.0.0.1 - - [06/Apr/2025 11:45:56] "POST /analyze HTTP/1.1" 200 -
+2025-04-06 11:47:34,168 - werkzeug - INFO -  * Detected change in 'c:\\Users\\Revant\\SASEHacks-UCM-2025\\app.py', reloading
+2025-04-06 11:47:34,724 - werkzeug - INFO -  * Restarting with stat
+2025-04-06 11:47:36,634 - __main__ - INFO - Upload folder created/verified at: C:\Users\Revant\SASEHacks-UCM-2025\uploads
+2025-04-06 11:47:36,644 - werkzeug - WARNING -  * Debugger is active!
+2025-04-06 11:47:36,649 - werkzeug - INFO -  * Debugger PIN: 104-714-205
+2025-04-06 11:47:37,391 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 11:48:07,208 - __main__ - DEBUG - Starting resume analysis
+2025-04-06 11:48:07,210 - __main__ - DEBUG - Saving file to: uploads\Revant_Patel_Resume_For_LG_Software_Engineering_Intern.pdf
+2025-04-06 11:48:07,211 - __main__ - DEBUG - File saved successfully at: uploads\Revant_Patel_Resume_For_LG_Software_Engineering_Intern.pdf
+2025-04-06 11:48:07,255 - __main__ - DEBUG - Successfully extracted text. Length: 3534
+2025-04-06 11:48:07,256 - __main__ - DEBUG - Cleaned up uploaded file
+2025-04-06 11:48:07,256 - __main__ - DEBUG - Calculating semantic similarity
+2025-04-06 11:48:07,261 - __main__ - DEBUG - Finding required skills
+2025-04-06 11:48:07,262 - __main__ - DEBUG - Extracting technical terms
+2025-04-06 11:48:07,960 - __main__ - DEBUG - Matching skills
+2025-04-06 11:48:08,024 - __main__ - DEBUG - Analysis complete. Match percentage: 40.136679116867086
+2025-04-06 11:48:08,024 - __main__ - DEBUG - Matched skills: {'software engineering': 0.4415384615384615, 'mongodb': 0.39822222222222226, 'testing': 0.5599999999999999, 'engineering': 0.5270588235294117, 'react': 0.64, 'rest api': 0.43054545454545456, 'postgresql': 0.64, 'development': 0.72, 'software development': 0.4830967741935484, 'go': 0.72, 'python': 0.8999999999999999, 'programming': 0.72, 'mysql': 0.49600000000000005, 'database': 0.4693333333333334, 'code review': 0.37333333333333335, 'sql': 0.72}
+2025-04-06 11:48:08,025 - __main__ - DEBUG - Categorized missing: {'Programming Languages': [{'skill': 'javascript', 'weight': 1.3499999999999999, 'is_critical': True}, {'skill': 'java', 'weight': 1.3499999999999999, 'is_critical': True}], 'Web Development': [{'skill': 'vue', 'weight': 0.64, 'is_critical': False}, {'skill': 'angular', 'weight': 0.64, 'is_critical': False}], 'Databases': [], 'Cloud & DevOps': [{'skill': 'git', 'weight': 1.3499999999999999, 'is_critical': True}], 'Software Development': [{'skill': 'agile', 'weight': 0.96, 'is_critical': True}, {'skill': 'debugging', 'weight': 0.8999999999999999, 'is_critical': False}], 'AI & Data': [], 'Soft Skills': []}
+2025-04-06 11:48:08,025 - __main__ - DEBUG - Category importance: {'Programming Languages': 2.6999999999999997, 'Web Development': 1.1520000000000001, 'Databases': 0, 'Cloud & DevOps': 1.2149999999999999, 'Software Development': 1.488, 'AI & Data': 0, 'Soft Skills': 0}
+2025-04-06 11:48:08,026 - __main__ - DEBUG - Sending response data: {'match_percentage': np.float64(40.1), 'semantic_similarity': np.float64(4.3), 'matched_skills': {'software engineering': 0.4415384615384615, 'mongodb': 0.39822222222222226, 'testing': 0.5599999999999999, 'engineering': 0.5270588235294117, 'react': 0.64, 'rest api': 0.43054545454545456, 'postgresql': 0.64, 'development': 0.72, 'software development': 0.4830967741935484, 'go': 0.72, 'python': 0.8999999999999999, 'programming': 0.72, 'mysql': 0.49600000000000005, 'database': 0.4693333333333334, 'code review': 0.37333333333333335, 'sql': 0.72}, 'missing_skills': {'Programming Languages': [{'skill': 'javascript', 'weight': 1.3499999999999999, 'is_critical': True}, {'skill': 'java', 'weight': 1.3499999999999999, 'is_critical': True}], 'Web Development': [{'skill': 'vue', 'weight': 0.64, 'is_critical': False}, {'skill': 'angular', 'weight': 0.64, 'is_critical': False}], 'Databases': [], 'Cloud & DevOps': [{'skill': 'git', 'weight': 1.3499999999999999, 'is_critical': True}], 'Software Development': [{'skill': 'agile', 'weight': 0.96, 'is_critical': True}, {'skill': 'debugging', 'weight': 0.8999999999999999, 'is_critical': False}], 'AI & Data': [], 'Soft Skills': []}, 'category_importance': {'Programming Languages': 2.6999999999999997, 'Web Development': 1.1520000000000001, 'Databases': 0, 'Cloud & DevOps': 1.2149999999999999, 'Software Development': 1.488, 'AI & Data': 0, 'Soft Skills': 0}}
+2025-04-06 11:48:08,027 - werkzeug - INFO - 127.0.0.1 - - [06/Apr/2025 11:48:08] "POST /analyze HTTP/1.1" 200 -
+2025-04-06 11:48:47,036 - __main__ - DEBUG - Starting resume analysis
+2025-04-06 11:48:47,037 - __main__ - DEBUG - Saving file to: uploads\Revant_Patel_Resume_For_LG_Software_Engineering_Intern.pdf
+2025-04-06 11:48:47,038 - __main__ - DEBUG - File saved successfully at: uploads\Revant_Patel_Resume_For_LG_Software_Engineering_Intern.pdf
+2025-04-06 11:48:47,070 - __main__ - DEBUG - Successfully extracted text. Length: 3534
+2025-04-06 11:48:47,071 - __main__ - DEBUG - Cleaned up uploaded file
+2025-04-06 11:48:47,071 - __main__ - DEBUG - Calculating semantic similarity
+2025-04-06 11:48:47,074 - __main__ - DEBUG - Finding required skills
+2025-04-06 11:48:47,075 - __main__ - DEBUG - Extracting technical terms
+2025-04-06 11:48:47,078 - __main__ - DEBUG - Matching skills
+2025-04-06 11:48:47,139 - __main__ - DEBUG - Analysis complete. Match percentage: 40.136679116867086
+2025-04-06 11:48:47,139 - __main__ - DEBUG - Matched skills: {'software engineering': 0.4415384615384615, 'mongodb': 0.39822222222222226, 'testing': 0.5599999999999999, 'engineering': 0.5270588235294117, 'react': 0.64, 'rest api': 0.43054545454545456, 'postgresql': 0.64, 'development': 0.72, 'software development': 0.4830967741935484, 'go': 0.72, 'python': 0.8999999999999999, 'programming': 0.72, 'mysql': 0.49600000000000005, 'database': 0.4693333333333334, 'code review': 0.37333333333333335, 'sql': 0.72}
+2025-04-06 11:48:47,139 - __main__ - DEBUG - Categorized missing: {'Programming Languages': [{'skill': 'javascript', 'weight': 1.3499999999999999, 'is_critical': True}, {'skill': 'java', 'weight': 1.3499999999999999, 'is_critical': True}], 'Web Development': [{'skill': 'vue', 'weight': 0.64, 'is_critical': False}, {'skill': 'angular', 'weight': 0.64, 'is_critical': False}], 'Databases': [], 'Cloud & DevOps': [{'skill': 'git', 'weight': 1.3499999999999999, 'is_critical': True}], 'Software Development': [{'skill': 'agile', 'weight': 0.96, 'is_critical': True}, {'skill': 'debugging', 'weight': 0.8999999999999999, 'is_critical': False}], 'AI & Data': [], 'Soft Skills': []}
+2025-04-06 11:48:47,140 - __main__ - DEBUG - Category importance: {'Programming Languages': 2.6999999999999997, 'Web Development': 1.1520000000000001, 'Databases': 0, 'Cloud & DevOps': 1.2149999999999999, 'Software Development': 1.488, 'AI & Data': 0, 'Soft Skills': 0}
+2025-04-06 11:48:47,140 - __main__ - DEBUG - Sending response data: {'match_percentage': np.float64(40.1), 'semantic_similarity': np.float64(4.3), 'matched_skills': {'software engineering': 0.4415384615384615, 'mongodb': 0.39822222222222226, 'testing': 0.5599999999999999, 'engineering': 0.5270588235294117, 'react': 0.64, 'rest api': 0.43054545454545456, 'postgresql': 0.64, 'development': 0.72, 'software development': 0.4830967741935484, 'go': 0.72, 'python': 0.8999999999999999, 'programming': 0.72, 'mysql': 0.49600000000000005, 'database': 0.4693333333333334, 'code review': 0.37333333333333335, 'sql': 0.72}, 'missing_skills': {'Programming Languages': [{'skill': 'javascript', 'weight': 1.3499999999999999, 'is_critical': True}, {'skill': 'java', 'weight': 1.3499999999999999, 'is_critical': True}], 'Web Development': [{'skill': 'vue', 'weight': 0.64, 'is_critical': False}, {'skill': 'angular', 'weight': 0.64, 'is_critical': False}], 'Databases': [], 'Cloud & DevOps': [{'skill': 'git', 'weight': 1.3499999999999999, 'is_critical': True}], 'Software Development': [{'skill': 'agile', 'weight': 0.96, 'is_critical': True}, {'skill': 'debugging', 'weight': 0.8999999999999999, 'is_critical': False}], 'AI & Data': [], 'Soft Skills': []}, 'category_importance': {'Programming Languages': 2.6999999999999997, 'Web Development': 1.1520000000000001, 'Databases': 0, 'Cloud & DevOps': 1.2149999999999999, 'Software Development': 1.488, 'AI & Data': 0, 'Soft Skills': 0}}
+2025-04-06 11:48:47,141 - werkzeug - INFO - 127.0.0.1 - - [06/Apr/2025 11:48:47] "POST /analyze HTTP/1.1" 200 -
+2025-04-06 11:50:36,193 - __main__ - DEBUG - Starting resume analysis
+2025-04-06 11:50:36,194 - __main__ - DEBUG - Saving file to: uploads\Revant_Patel_Resume_For_LG_Software_Engineering_Intern.pdf
+2025-04-06 11:50:36,195 - __main__ - DEBUG - File saved successfully at: uploads\Revant_Patel_Resume_For_LG_Software_Engineering_Intern.pdf
+2025-04-06 11:50:36,229 - __main__ - DEBUG - Successfully extracted text. Length: 3534
+2025-04-06 11:50:36,230 - __main__ - DEBUG - Cleaned up uploaded file
+2025-04-06 11:50:36,230 - __main__ - DEBUG - Calculating semantic similarity
+2025-04-06 11:50:36,233 - __main__ - DEBUG - Finding required skills
+2025-04-06 11:50:36,234 - __main__ - DEBUG - Extracting technical terms
+2025-04-06 11:50:36,237 - __main__ - DEBUG - Matching skills
+2025-04-06 11:50:36,298 - __main__ - DEBUG - Analysis complete. Match percentage: 40.136679116867086
+2025-04-06 11:50:36,298 - __main__ - DEBUG - Matched skills: {'software engineering': 0.4415384615384615, 'mongodb': 0.39822222222222226, 'testing': 0.5599999999999999, 'engineering': 0.5270588235294117, 'react': 0.64, 'rest api': 0.43054545454545456, 'postgresql': 0.64, 'development': 0.72, 'software development': 0.4830967741935484, 'go': 0.72, 'python': 0.8999999999999999, 'programming': 0.72, 'mysql': 0.49600000000000005, 'database': 0.4693333333333334, 'code review': 0.37333333333333335, 'sql': 0.72}
+2025-04-06 11:50:36,298 - __main__ - DEBUG - Categorized missing: {'Programming Languages': [{'skill': 'javascript', 'weight': 1.3499999999999999, 'is_critical': True}, {'skill': 'java', 'weight': 1.3499999999999999, 'is_critical': True}], 'Web Development': [{'skill': 'vue', 'weight': 0.64, 'is_critical': False}, {'skill': 'angular', 'weight': 0.64, 'is_critical': False}], 'Databases': [], 'Cloud & DevOps': [{'skill': 'git', 'weight': 1.3499999999999999, 'is_critical': True}], 'Software Development': [{'skill': 'agile', 'weight': 0.96, 'is_critical': True}, {'skill': 'debugging', 'weight': 0.8999999999999999, 'is_critical': False}], 'AI & Data': [], 'Soft Skills': []}
+2025-04-06 11:50:36,299 - __main__ - DEBUG - Category importance: {'Programming Languages': 2.6999999999999997, 'Web Development': 1.1520000000000001, 'Databases': 0, 'Cloud & DevOps': 1.2149999999999999, 'Software Development': 1.488, 'AI & Data': 0, 'Soft Skills': 0}
+2025-04-06 11:50:36,299 - __main__ - DEBUG - Sending response data: {'match_percentage': np.float64(40.1), 'semantic_similarity': np.float64(4.3), 'matched_skills': {'software engineering': 0.4415384615384615, 'mongodb': 0.39822222222222226, 'testing': 0.5599999999999999, 'engineering': 0.5270588235294117, 'react': 0.64, 'rest api': 0.43054545454545456, 'postgresql': 0.64, 'development': 0.72, 'software development': 0.4830967741935484, 'go': 0.72, 'python': 0.8999999999999999, 'programming': 0.72, 'mysql': 0.49600000000000005, 'database': 0.4693333333333334, 'code review': 0.37333333333333335, 'sql': 0.72}, 'missing_skills': {'Programming Languages': [{'skill': 'javascript', 'weight': 1.3499999999999999, 'is_critical': True}, {'skill': 'java', 'weight': 1.3499999999999999, 'is_critical': True}], 'Web Development': [{'skill': 'vue', 'weight': 0.64, 'is_critical': False}, {'skill': 'angular', 'weight': 0.64, 'is_critical': False}], 'Databases': [], 'Cloud & DevOps': [{'skill': 'git', 'weight': 1.3499999999999999, 'is_critical': True}], 'Software Development': [{'skill': 'agile', 'weight': 0.96, 'is_critical': True}, {'skill': 'debugging', 'weight': 0.8999999999999999, 'is_critical': False}], 'AI & Data': [], 'Soft Skills': []}, 'category_importance': {'Programming Languages': 2.6999999999999997, 'Web Development': 1.1520000000000001, 'Databases': 0, 'Cloud & DevOps': 1.2149999999999999, 'Software Development': 1.488, 'AI & Data': 0, 'Soft Skills': 0}}
+2025-04-06 11:50:36,300 - werkzeug - INFO - 127.0.0.1 - - [06/Apr/2025 11:50:36] "POST /analyze HTTP/1.1" 200 -
+2025-04-06 11:50:52,609 - __main__ - DEBUG - Starting resume analysis
+2025-04-06 11:50:52,610 - __main__ - DEBUG - Saving file to: uploads\Revant_Patel_Resume_For_LG_Software_Engineering_Intern.pdf
+2025-04-06 11:50:52,611 - __main__ - DEBUG - File saved successfully at: uploads\Revant_Patel_Resume_For_LG_Software_Engineering_Intern.pdf
+2025-04-06 11:50:52,645 - __main__ - DEBUG - Successfully extracted text. Length: 3534
+2025-04-06 11:50:52,646 - __main__ - DEBUG - Cleaned up uploaded file
+2025-04-06 11:50:52,646 - __main__ - DEBUG - Calculating semantic similarity
+2025-04-06 11:50:52,649 - __main__ - DEBUG - Finding required skills
+2025-04-06 11:50:52,649 - __main__ - DEBUG - Extracting technical terms
+2025-04-06 11:50:52,653 - __main__ - DEBUG - Matching skills
+2025-04-06 11:50:52,714 - __main__ - DEBUG - Analysis complete. Match percentage: 40.136679116867086
+2025-04-06 11:50:52,715 - __main__ - DEBUG - Matched skills: {'software engineering': 0.4415384615384615, 'mongodb': 0.39822222222222226, 'testing': 0.5599999999999999, 'engineering': 0.5270588235294117, 'react': 0.64, 'rest api': 0.43054545454545456, 'postgresql': 0.64, 'development': 0.72, 'software development': 0.4830967741935484, 'go': 0.72, 'python': 0.8999999999999999, 'programming': 0.72, 'mysql': 0.49600000000000005, 'database': 0.4693333333333334, 'code review': 0.37333333333333335, 'sql': 0.72}
+2025-04-06 11:50:52,715 - __main__ - DEBUG - Categorized missing: {'Programming Languages': [{'skill': 'javascript', 'weight': 1.3499999999999999, 'is_critical': True}, {'skill': 'java', 'weight': 1.3499999999999999, 'is_critical': True}], 'Web Development': [{'skill': 'vue', 'weight': 0.64, 'is_critical': False}, {'skill': 'angular', 'weight': 0.64, 'is_critical': False}], 'Databases': [], 'Cloud & DevOps': [{'skill': 'git', 'weight': 1.3499999999999999, 'is_critical': True}], 'Software Development': [{'skill': 'agile', 'weight': 0.96, 'is_critical': True}, {'skill': 'debugging', 'weight': 0.8999999999999999, 'is_critical': False}], 'AI & Data': [], 'Soft Skills': []}
+2025-04-06 11:50:52,715 - __main__ - DEBUG - Category importance: {'Programming Languages': 2.6999999999999997, 'Web Development': 1.1520000000000001, 'Databases': 0, 'Cloud & DevOps': 1.2149999999999999, 'Software Development': 1.488, 'AI & Data': 0, 'Soft Skills': 0}
+2025-04-06 11:50:52,716 - __main__ - DEBUG - Sending response data: {'match_percentage': np.float64(40.1), 'semantic_similarity': np.float64(4.3), 'matched_skills': {'software engineering': 0.4415384615384615, 'mongodb': 0.39822222222222226, 'testing': 0.5599999999999999, 'engineering': 0.5270588235294117, 'react': 0.64, 'rest api': 0.43054545454545456, 'postgresql': 0.64, 'development': 0.72, 'software development': 0.4830967741935484, 'go': 0.72, 'python': 0.8999999999999999, 'programming': 0.72, 'mysql': 0.49600000000000005, 'database': 0.4693333333333334, 'code review': 0.37333333333333335, 'sql': 0.72}, 'missing_skills': {'Programming Languages': [{'skill': 'javascript', 'weight': 1.3499999999999999, 'is_critical': True}, {'skill': 'java', 'weight': 1.3499999999999999, 'is_critical': True}], 'Web Development': [{'skill': 'vue', 'weight': 0.64, 'is_critical': False}, {'skill': 'angular', 'weight': 0.64, 'is_critical': False}], 'Databases': [], 'Cloud & DevOps': [{'skill': 'git', 'weight': 1.3499999999999999, 'is_critical': True}], 'Software Development': [{'skill': 'agile', 'weight': 0.96, 'is_critical': True}, {'skill': 'debugging', 'weight': 0.8999999999999999, 'is_critical': False}], 'AI & Data': [], 'Soft Skills': []}, 'category_importance': {'Programming Languages': 2.6999999999999997, 'Web Development': 1.1520000000000001, 'Databases': 0, 'Cloud & DevOps': 1.2149999999999999, 'Software Development': 1.488, 'AI & Data': 0, 'Soft Skills': 0}}
+2025-04-06 11:50:52,717 - werkzeug - INFO - 127.0.0.1 - - [06/Apr/2025 11:50:52] "POST /analyze HTTP/1.1" 200 -
+2025-04-06 11:52:06,417 - __main__ - INFO - Upload folder created/verified at: C:\Users\Revant\SASEHacks-UCM-2025\uploads
+2025-04-06 11:52:06,428 - werkzeug - INFO -  * Restarting with stat
+2025-04-06 11:52:08,164 - __main__ - INFO - Upload folder created/verified at: C:\Users\Revant\SASEHacks-UCM-2025\uploads
+2025-04-06 11:52:08,173 - werkzeug - WARNING -  * Debugger is active!
+2025-04-06 11:52:08,177 - werkzeug - INFO -  * Debugger PIN: 104-714-205
+2025-04-06 11:52:08,909 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 11:52:09,820 - werkzeug - INFO - 127.0.0.1 - - [06/Apr/2025 11:52:09] "GET / HTTP/1.1" 200 -
+2025-04-06 11:52:31,216 - __main__ - DEBUG - Starting resume analysis
+2025-04-06 11:52:31,217 - __main__ - DEBUG - Saving file to: uploads\Kinship_Chart_Interview_Reflection..pdf
+2025-04-06 11:52:31,218 - __main__ - DEBUG - File saved successfully at: uploads\Kinship_Chart_Interview_Reflection..pdf
+2025-04-06 11:52:31,324 - __main__ - DEBUG - Successfully extracted text. Length: 1482
+2025-04-06 11:52:31,324 - __main__ - DEBUG - Cleaned up uploaded file
+2025-04-06 11:52:31,324 - __main__ - DEBUG - Calculating semantic similarity
+2025-04-06 11:52:31,327 - __main__ - DEBUG - Finding required skills
+2025-04-06 11:52:31,328 - __main__ - DEBUG - Extracting technical terms
+2025-04-06 11:52:31,927 - __main__ - DEBUG - Matching skills
+2025-04-06 11:52:31,959 - __main__ - DEBUG - Analysis complete. Match percentage: 7.035504575362348
+2025-04-06 11:52:31,959 - __main__ - DEBUG - Matched skills: {'go': 0.72, 'mongodb': 0.39822222222222226, 'front end': 0.41600000000000004}
+2025-04-06 11:52:31,959 - __main__ - DEBUG - Categorized missing: {'Programming Languages': [{'skill': 'python', 'weight': 1.3499999999999999, 'is_critical': True}, {'skill': 'javascript', 'weight': 1.3499999999999999, 'is_critical': True}, {'skill': 'java', 'weight': 1.3499999999999999, 'is_critical': True}], 'Web Development': [{'skill': 'react', 'weight': 0.96, 'is_critical': True}, {'skill': 'vue', 'weight': 0.64, 'is_critical': False}, {'skill': 'angular', 'weight': 0.64, 'is_critical': False}], 'Databases': [{'skill': 'sql', 'weight': 1.08, 'is_critical': True}, {'skill': 'mysql', 'weight': 0.64, 'is_critical': False}, {'skill': 'postgresql', 'weight': 0.64, 'is_critical': False}, {'skill': 'database', 'weight': 0.64, 'is_critical': False}], 'Cloud & DevOps': [{'skill': 'git', 'weight': 1.3499999999999999, 'is_critical': True}], 'Software Development': [{'skill': 'agile', 'weight': 0.96, 'is_critical': True}, {'skill': 'rest api', 'weight': 0.96, 'is_critical': True}, {'skill': 'debugging', 'weight': 0.8999999999999999, 'is_critical': False}, {'skill': 'testing', 'weight': 0.8399999999999999, 'is_critical': True}, {'skill': 'code review', 'weight': 0.5599999999999999, 'is_critical': False}], 'AI & Data': [], 'Soft Skills': []}
+2025-04-06 11:52:31,960 - __main__ - DEBUG - Category importance: {'Programming Languages': 4.05, 'Web Development': 2.016, 'Databases': 2.7, 'Cloud & DevOps': 1.2149999999999999, 'Software Development': 3.3759999999999994, 'AI & Data': 0, 'Soft Skills': 0}
+2025-04-06 11:52:31,960 - __main__ - DEBUG - Sending response data: {'match_percentage': np.float64(7.0), 'semantic_similarity': np.float64(2.6), 'matched_skills': {'go': 0.72, 'mongodb': 0.39822222222222226, 'front end': 0.41600000000000004}, 'missing_skills': {'Programming Languages': [{'skill': 'python', 'weight': 1.3499999999999999, 'is_critical': True}, {'skill': 'javascript', 'weight': 1.3499999999999999, 'is_critical': True}, {'skill': 'java', 'weight': 1.3499999999999999, 'is_critical': True}], 'Web Development': [{'skill': 'react', 'weight': 0.96, 'is_critical': True}, {'skill': 'vue', 'weight': 0.64, 'is_critical': False}, {'skill': 'angular', 'weight': 0.64, 'is_critical': False}], 'Databases': [{'skill': 'sql', 'weight': 1.08, 'is_critical': True}, {'skill': 'mysql', 'weight': 0.64, 'is_critical': False}, {'skill': 'postgresql', 'weight': 0.64, 'is_critical': False}, {'skill': 'database', 'weight': 0.64, 'is_critical': False}], 'Cloud & DevOps': [{'skill': 'git', 'weight': 1.3499999999999999, 'is_critical': True}], 'Software Development': [{'skill': 'agile', 'weight': 0.96, 'is_critical': True}, {'skill': 'rest api', 'weight': 0.96, 'is_critical': True}, {'skill': 'debugging', 'weight': 0.8999999999999999, 'is_critical': False}, {'skill': 'testing', 'weight': 0.8399999999999999, 'is_critical': True}, {'skill': 'code review', 'weight': 0.5599999999999999, 'is_critical': False}], 'AI & Data': [], 'Soft Skills': []}, 'category_importance': {'Programming Languages': 4.05, 'Web Development': 2.016, 'Databases': 2.7, 'Cloud & DevOps': 1.2149999999999999, 'Software Development': 3.3759999999999994, 'AI & Data': 0, 'Soft Skills': 0}}
+2025-04-06 11:52:31,961 - werkzeug - INFO - 127.0.0.1 - - [06/Apr/2025 11:52:31] "POST /analyze HTTP/1.1" 200 -
+2025-04-06 11:52:37,328 - __main__ - DEBUG - Starting resume analysis
+2025-04-06 11:52:37,329 - __main__ - DEBUG - Saving file to: uploads\Revant_Patel_Resume_For_LG_Software_Engineering_Intern.pdf
+2025-04-06 11:52:37,330 - __main__ - DEBUG - File saved successfully at: uploads\Revant_Patel_Resume_For_LG_Software_Engineering_Intern.pdf
+2025-04-06 11:52:37,365 - __main__ - DEBUG - Successfully extracted text. Length: 3534
+2025-04-06 11:52:37,366 - __main__ - DEBUG - Cleaned up uploaded file
+2025-04-06 11:52:37,366 - __main__ - DEBUG - Calculating semantic similarity
+2025-04-06 11:52:37,369 - __main__ - DEBUG - Finding required skills
+2025-04-06 11:52:37,370 - __main__ - DEBUG - Extracting technical terms
+2025-04-06 11:52:37,374 - __main__ - DEBUG - Matching skills
+2025-04-06 11:52:37,435 - __main__ - DEBUG - Analysis complete. Match percentage: 40.136679116867086
+2025-04-06 11:52:37,435 - __main__ - DEBUG - Matched skills: {'sql': 0.72, 'mysql': 0.49600000000000005, 'python': 0.8999999999999999, 'react': 0.64, 'testing': 0.5599999999999999, 'postgresql': 0.64, 'database': 0.4693333333333334, 'go': 0.72, 'software development': 0.4830967741935484, 'mongodb': 0.39822222222222226, 'code review': 0.37333333333333335, 'development': 0.72, 'engineering': 0.5270588235294117, 'software engineering': 0.4415384615384615, 'programming': 0.72, 'rest api': 0.43054545454545456}
+2025-04-06 11:52:37,435 - __main__ - DEBUG - Categorized missing: {'Programming Languages': [{'skill': 'javascript', 'weight': 1.3499999999999999, 'is_critical': True}, {'skill': 'java', 'weight': 1.3499999999999999, 'is_critical': True}], 'Web Development': [{'skill': 'vue', 'weight': 0.64, 'is_critical': False}, {'skill': 'angular', 'weight': 0.64, 'is_critical': False}], 'Databases': [], 'Cloud & DevOps': [{'skill': 'git', 'weight': 1.3499999999999999, 'is_critical': True}], 'Software Development': [{'skill': 'agile', 'weight': 0.96, 'is_critical': True}, {'skill': 'debugging', 'weight': 0.8999999999999999, 'is_critical': False}], 'AI & Data': [], 'Soft Skills': []}
+2025-04-06 11:52:37,436 - __main__ - DEBUG - Category importance: {'Programming Languages': 2.6999999999999997, 'Web Development': 1.1520000000000001, 'Databases': 0, 'Cloud & DevOps': 1.2149999999999999, 'Software Development': 1.488, 'AI & Data': 0, 'Soft Skills': 0}
+2025-04-06 11:52:37,436 - __main__ - DEBUG - Sending response data: {'match_percentage': np.float64(40.1), 'semantic_similarity': np.float64(4.3), 'matched_skills': {'sql': 0.72, 'mysql': 0.49600000000000005, 'python': 0.8999999999999999, 'react': 0.64, 'testing': 0.5599999999999999, 'postgresql': 0.64, 'database': 0.4693333333333334, 'go': 0.72, 'software development': 0.4830967741935484, 'mongodb': 0.39822222222222226, 'code review': 0.37333333333333335, 'development': 0.72, 'engineering': 0.5270588235294117, 'software engineering': 0.4415384615384615, 'programming': 0.72, 'rest api': 0.43054545454545456}, 'missing_skills': {'Programming Languages': [{'skill': 'javascript', 'weight': 1.3499999999999999, 'is_critical': True}, {'skill': 'java', 'weight': 1.3499999999999999, 'is_critical': True}], 'Web Development': [{'skill': 'vue', 'weight': 0.64, 'is_critical': False}, {'skill': 'angular', 'weight': 0.64, 'is_critical': False}], 'Databases': [], 'Cloud & DevOps': [{'skill': 'git', 'weight': 1.3499999999999999, 'is_critical': True}], 'Software Development': [{'skill': 'agile', 'weight': 0.96, 'is_critical': True}, {'skill': 'debugging', 'weight': 0.8999999999999999, 'is_critical': False}], 'AI & Data': [], 'Soft Skills': []}, 'category_importance': {'Programming Languages': 2.6999999999999997, 'Web Development': 1.1520000000000001, 'Databases': 0, 'Cloud & DevOps': 1.2149999999999999, 'Software Development': 1.488, 'AI & Data': 0, 'Soft Skills': 0}}
+2025-04-06 11:52:37,437 - werkzeug - INFO - 127.0.0.1 - - [06/Apr/2025 11:52:37] "POST /analyze HTTP/1.1" 200 -
+2025-04-06 11:52:39,191 - __main__ - DEBUG - Starting resume analysis
+2025-04-06 11:52:39,193 - __main__ - DEBUG - Saving file to: uploads\Revant_Patel_Resume_For_LG_Software_Engineering_Intern.pdf
+2025-04-06 11:52:39,194 - __main__ - DEBUG - File saved successfully at: uploads\Revant_Patel_Resume_For_LG_Software_Engineering_Intern.pdf
+2025-04-06 11:52:39,229 - __main__ - DEBUG - Successfully extracted text. Length: 3534
+2025-04-06 11:52:39,229 - __main__ - DEBUG - Cleaned up uploaded file
+2025-04-06 11:52:39,230 - __main__ - DEBUG - Calculating semantic similarity
+2025-04-06 11:52:39,233 - __main__ - DEBUG - Finding required skills
+2025-04-06 11:52:39,234 - __main__ - DEBUG - Extracting technical terms
+2025-04-06 11:52:39,237 - __main__ - DEBUG - Matching skills
+2025-04-06 11:52:39,298 - __main__ - DEBUG - Analysis complete. Match percentage: 40.136679116867086
+2025-04-06 11:52:39,299 - __main__ - DEBUG - Matched skills: {'sql': 0.72, 'mysql': 0.49600000000000005, 'python': 0.8999999999999999, 'react': 0.64, 'testing': 0.5599999999999999, 'postgresql': 0.64, 'database': 0.4693333333333334, 'go': 0.72, 'software development': 0.4830967741935484, 'mongodb': 0.39822222222222226, 'code review': 0.37333333333333335, 'development': 0.72, 'engineering': 0.5270588235294117, 'software engineering': 0.4415384615384615, 'programming': 0.72, 'rest api': 0.43054545454545456}
+2025-04-06 11:52:39,299 - __main__ - DEBUG - Categorized missing: {'Programming Languages': [{'skill': 'javascript', 'weight': 1.3499999999999999, 'is_critical': True}, {'skill': 'java', 'weight': 1.3499999999999999, 'is_critical': True}], 'Web Development': [{'skill': 'vue', 'weight': 0.64, 'is_critical': False}, {'skill': 'angular', 'weight': 0.64, 'is_critical': False}], 'Databases': [], 'Cloud & DevOps': [{'skill': 'git', 'weight': 1.3499999999999999, 'is_critical': True}], 'Software Development': [{'skill': 'agile', 'weight': 0.96, 'is_critical': True}, {'skill': 'debugging', 'weight': 0.8999999999999999, 'is_critical': False}], 'AI & Data': [], 'Soft Skills': []}
+2025-04-06 11:52:39,300 - __main__ - DEBUG - Category importance: {'Programming Languages': 2.6999999999999997, 'Web Development': 1.1520000000000001, 'Databases': 0, 'Cloud & DevOps': 1.2149999999999999, 'Software Development': 1.488, 'AI & Data': 0, 'Soft Skills': 0}
+2025-04-06 11:52:39,300 - __main__ - DEBUG - Sending response data: {'match_percentage': np.float64(40.1), 'semantic_similarity': np.float64(4.3), 'matched_skills': {'sql': 0.72, 'mysql': 0.49600000000000005, 'python': 0.8999999999999999, 'react': 0.64, 'testing': 0.5599999999999999, 'postgresql': 0.64, 'database': 0.4693333333333334, 'go': 0.72, 'software development': 0.4830967741935484, 'mongodb': 0.39822222222222226, 'code review': 0.37333333333333335, 'development': 0.72, 'engineering': 0.5270588235294117, 'software engineering': 0.4415384615384615, 'programming': 0.72, 'rest api': 0.43054545454545456}, 'missing_skills': {'Programming Languages': [{'skill': 'javascript', 'weight': 1.3499999999999999, 'is_critical': True}, {'skill': 'java', 'weight': 1.3499999999999999, 'is_critical': True}], 'Web Development': [{'skill': 'vue', 'weight': 0.64, 'is_critical': False}, {'skill': 'angular', 'weight': 0.64, 'is_critical': False}], 'Databases': [], 'Cloud & DevOps': [{'skill': 'git', 'weight': 1.3499999999999999, 'is_critical': True}], 'Software Development': [{'skill': 'agile', 'weight': 0.96, 'is_critical': True}, {'skill': 'debugging', 'weight': 0.8999999999999999, 'is_critical': False}], 'AI & Data': [], 'Soft Skills': []}, 'category_importance': {'Programming Languages': 2.6999999999999997, 'Web Development': 1.1520000000000001, 'Databases': 0, 'Cloud & DevOps': 1.2149999999999999, 'Software Development': 1.488, 'AI & Data': 0, 'Soft Skills': 0}}
+2025-04-06 11:52:39,301 - werkzeug - INFO - 127.0.0.1 - - [06/Apr/2025 11:52:39] "POST /analyze HTTP/1.1" 200 -
+2025-04-06 11:56:28,841 - __main__ - DEBUG - Starting resume analysis
+2025-04-06 11:56:28,842 - __main__ - DEBUG - Saving file to: uploads\Revant_Patel_Resume.pdf
+2025-04-06 11:56:28,843 - __main__ - DEBUG - File saved successfully at: uploads\Revant_Patel_Resume.pdf
+2025-04-06 11:56:28,877 - __main__ - DEBUG - Successfully extracted text. Length: 3486
+2025-04-06 11:56:28,877 - __main__ - DEBUG - Cleaned up uploaded file
+2025-04-06 11:56:28,877 - __main__ - DEBUG - Calculating semantic similarity
+2025-04-06 11:56:28,880 - __main__ - DEBUG - Finding required skills
+2025-04-06 11:56:28,881 - __main__ - DEBUG - Extracting technical terms
+2025-04-06 11:56:28,885 - __main__ - DEBUG - Matching skills
+2025-04-06 11:56:28,940 - __main__ - DEBUG - Analysis complete. Match percentage: 47.82588201220943
+2025-04-06 11:56:28,941 - __main__ - DEBUG - Matched skills: {'sql': 0.72, 'mysql': 0.49600000000000005, 'python': 0.8999999999999999, 'react': 0.64, 'testing': 0.5599999999999999, 'postgresql': 0.64, 'javascript': 0.8999999999999999, 'database': 0.4693333333333334, 'go': 0.72, 'software development': 0.4830967741935484, 'mongodb': 0.39822222222222226, 'code review': 0.37333333333333335, 'java': 0.8999999999999999, 'development': 0.72, 'engineering': 0.5270588235294117, 'software engineering': 0.4415384615384615, 'programming': 0.72, 'rest api': 0.43054545454545456}
+2025-04-06 11:56:28,941 - __main__ - DEBUG - Categorized missing: {'Programming Languages': [], 'Web Development': [{'skill': 'vue', 'weight': 0.64, 'is_critical': False}, {'skill': 'angular', 'weight': 0.64, 'is_critical': False}], 'Databases': [], 'Cloud & DevOps': [{'skill': 'git', 'weight': 1.3499999999999999, 'is_critical': True}], 'Software Development': [{'skill': 'agile', 'weight': 0.96, 'is_critical': True}, {'skill': 'debugging', 'weight': 0.8999999999999999, 'is_critical': False}], 'AI & Data': [], 'Soft Skills': []}
+2025-04-06 11:56:28,941 - __main__ - DEBUG - Category importance: {'Programming Languages': 0, 'Web Development': 1.1520000000000001, 'Databases': 0, 'Cloud & DevOps': 1.2149999999999999, 'Software Development': 1.488, 'AI & Data': 0, 'Soft Skills': 0}
+2025-04-06 11:56:28,942 - __main__ - DEBUG - Sending response data: {'match_percentage': np.float64(47.8), 'semantic_similarity': np.float64(4.5), 'matched_skills': {'sql': 0.72, 'mysql': 0.49600000000000005, 'python': 0.8999999999999999, 'react': 0.64, 'testing': 0.5599999999999999, 'postgresql': 0.64, 'javascript': 0.8999999999999999, 'database': 0.4693333333333334, 'go': 0.72, 'software development': 0.4830967741935484, 'mongodb': 0.39822222222222226, 'code review': 0.37333333333333335, 'java': 0.8999999999999999, 'development': 0.72, 'engineering': 0.5270588235294117, 'software engineering': 0.4415384615384615, 'programming': 0.72, 'rest api': 0.43054545454545456}, 'missing_skills': {'Programming Languages': [], 'Web Development': [{'skill': 'vue', 'weight': 0.64, 'is_critical': False}, {'skill': 'angular', 'weight': 0.64, 'is_critical': False}], 'Databases': [], 'Cloud & DevOps': [{'skill': 'git', 'weight': 1.3499999999999999, 'is_critical': True}], 'Software Development': [{'skill': 'agile', 'weight': 0.96, 'is_critical': True}, {'skill': 'debugging', 'weight': 0.8999999999999999, 'is_critical': False}], 'AI & Data': [], 'Soft Skills': []}, 'category_importance': {'Programming Languages': 0, 'Web Development': 1.1520000000000001, 'Databases': 0, 'Cloud & DevOps': 1.2149999999999999, 'Software Development': 1.488, 'AI & Data': 0, 'Soft Skills': 0}}
+2025-04-06 11:56:28,943 - werkzeug - INFO - 127.0.0.1 - - [06/Apr/2025 11:56:28] "POST /analyze HTTP/1.1" 200 -
+2025-04-06 11:57:15,738 - werkzeug - INFO -  * Detected change in 'c:\\Users\\Revant\\SASEHacks-UCM-2025\\app.py', reloading
+2025-04-06 11:57:16,193 - werkzeug - INFO -  * Restarting with stat
+2025-04-06 11:57:18,061 - __main__ - INFO - Upload folder created/verified at: C:\Users\Revant\SASEHacks-UCM-2025\uploads
+2025-04-06 11:57:18,070 - werkzeug - WARNING -  * Debugger is active!
+2025-04-06 11:57:18,074 - werkzeug - INFO -  * Debugger PIN: 104-714-205
+2025-04-06 11:57:18,813 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 11:57:33,231 - werkzeug - INFO -  * Detected change in 'c:\\Users\\Revant\\SASEHacks-UCM-2025\\app.py', reloading
+2025-04-06 11:57:33,420 - werkzeug - INFO -  * Restarting with stat
+2025-04-06 11:57:35,300 - __main__ - INFO - Upload folder created/verified at: C:\Users\Revant\SASEHacks-UCM-2025\uploads
+2025-04-06 11:57:35,309 - werkzeug - WARNING -  * Debugger is active!
+2025-04-06 11:57:35,313 - werkzeug - INFO -  * Debugger PIN: 104-714-205
+2025-04-06 11:57:36,061 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 11:58:43,233 - werkzeug - INFO -  * Detected change in 'c:\\Users\\Revant\\SASEHacks-UCM-2025\\main.py', reloading
+2025-04-06 11:58:43,412 - werkzeug - INFO -  * Restarting with stat
+2025-04-06 11:58:45,182 - __main__ - INFO - Upload folder created/verified at: C:\Users\Revant\SASEHacks-UCM-2025\uploads
+2025-04-06 11:58:45,191 - werkzeug - WARNING -  * Debugger is active!
+2025-04-06 11:58:45,195 - werkzeug - INFO -  * Debugger PIN: 104-714-205
+2025-04-06 11:58:45,929 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 11:58:55,572 - __main__ - DEBUG - Starting resume analysis
+2025-04-06 11:58:55,574 - __main__ - DEBUG - Saving file to: uploads\Revant_Patel_Resume.pdf
+2025-04-06 11:58:55,575 - __main__ - DEBUG - File saved successfully at: uploads\Revant_Patel_Resume.pdf
+2025-04-06 11:58:55,613 - __main__ - DEBUG - Successfully extracted text. Length: 3486
+2025-04-06 11:58:55,614 - __main__ - DEBUG - Cleaned up uploaded file
+2025-04-06 11:58:55,614 - __main__ - DEBUG - Calculating semantic similarity
+2025-04-06 11:58:55,617 - __main__ - DEBUG - Finding required skills
+2025-04-06 11:58:55,618 - __main__ - DEBUG - Extracting technical terms
+2025-04-06 11:58:56,280 - __main__ - DEBUG - Matching skills
+2025-04-06 11:58:56,335 - __main__ - DEBUG - Analysis complete. Match percentage: 47.82588201220943
+2025-04-06 11:58:56,335 - __main__ - DEBUG - Matched skills: {'javascript': 0.8999999999999999, 'mysql': 0.49600000000000005, 'react': 0.64, 'engineering': 0.5270588235294117, 'rest api': 0.43054545454545456, 'code review': 0.37333333333333335, 'database': 0.4693333333333334, 'testing': 0.5599999999999999, 'software development': 0.4830967741935484, 'programming': 0.72, 'software engineering': 0.4415384615384615, 'mongodb': 0.39822222222222226, 'sql': 0.72, 'go': 0.72, 'postgresql': 0.64, 'development': 0.72, 'python': 0.8999999999999999, 'java': 0.8999999999999999}
+2025-04-06 11:58:56,335 - __main__ - DEBUG - Categorized missing: {'Programming Languages': [], 'Web Development': [{'skill': 'angular', 'weight': 0.64, 'is_critical': False}, {'skill': 'vue', 'weight': 0.64, 'is_critical': False}], 'Databases': [], 'Cloud & DevOps': [{'skill': 'git', 'weight': 1.3499999999999999, 'is_critical': True}], 'Software Development': [{'skill': 'agile', 'weight': 0.96, 'is_critical': True}, {'skill': 'debugging', 'weight': 0.8999999999999999, 'is_critical': False}], 'AI & Data': [], 'Soft Skills': []}
+2025-04-06 11:58:56,336 - __main__ - DEBUG - Category importance: {'Programming Languages': 0, 'Web Development': 1.1520000000000001, 'Databases': 0, 'Cloud & DevOps': 1.2149999999999999, 'Software Development': 1.488, 'AI & Data': 0, 'Soft Skills': 0}
+2025-04-06 11:58:56,336 - __main__ - DEBUG - Sending response data: {'match_percentage': np.float64(47.8), 'semantic_similarity': np.float64(4.5), 'matched_skills': {'javascript': 0.8999999999999999, 'mysql': 0.49600000000000005, 'react': 0.64, 'engineering': 0.5270588235294117, 'rest api': 0.43054545454545456, 'code review': 0.37333333333333335, 'database': 0.4693333333333334, 'testing': 0.5599999999999999, 'software development': 0.4830967741935484, 'programming': 0.72, 'software engineering': 0.4415384615384615, 'mongodb': 0.39822222222222226, 'sql': 0.72, 'go': 0.72, 'postgresql': 0.64, 'development': 0.72, 'python': 0.8999999999999999, 'java': 0.8999999999999999}, 'missing_skills': {'Programming Languages': [], 'Web Development': [{'skill': 'angular', 'weight': 0.64, 'is_critical': False}, {'skill': 'vue', 'weight': 0.64, 'is_critical': False}], 'Databases': [], 'Cloud & DevOps': [{'skill': 'git', 'weight': 1.3499999999999999, 'is_critical': True}], 'Software Development': [{'skill': 'agile', 'weight': 0.96, 'is_critical': True}, {'skill': 'debugging', 'weight': 0.8999999999999999, 'is_critical': False}], 'AI & Data': [], 'Soft Skills': []}, 'category_importance': {'Programming Languages': 0, 'Web Development': 1.1520000000000001, 'Databases': 0, 'Cloud & DevOps': 1.2149999999999999, 'Software Development': 1.488, 'AI & Data': 0, 'Soft Skills': 0}}
+2025-04-06 11:58:56,337 - werkzeug - INFO - 127.0.0.1 - - [06/Apr/2025 11:58:56] "POST /analyze HTTP/1.1" 200 -
+2025-04-06 11:59:23,150 - werkzeug - INFO -  * Detected change in 'c:\\Users\\Revant\\SASEHacks-UCM-2025\\main.py', reloading
+2025-04-06 11:59:23,594 - werkzeug - INFO -  * Restarting with stat
+2025-04-06 11:59:25,436 - __main__ - INFO - Upload folder created/verified at: C:\Users\Revant\SASEHacks-UCM-2025\uploads
+2025-04-06 11:59:25,445 - werkzeug - WARNING -  * Debugger is active!
+2025-04-06 11:59:25,449 - werkzeug - INFO -  * Debugger PIN: 104-714-205
+2025-04-06 11:59:26,198 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 11:59:37,435 - werkzeug - INFO -  * Detected change in 'c:\\Users\\Revant\\SASEHacks-UCM-2025\\main.py', reloading
+2025-04-06 11:59:37,641 - werkzeug - INFO -  * Restarting with stat
+2025-04-06 11:59:39,438 - __main__ - INFO - Upload folder created/verified at: C:\Users\Revant\SASEHacks-UCM-2025\uploads
+2025-04-06 11:59:39,447 - werkzeug - WARNING -  * Debugger is active!
+2025-04-06 11:59:39,452 - werkzeug - INFO -  * Debugger PIN: 104-714-205
+2025-04-06 11:59:40,194 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 11:59:44,183 - werkzeug - INFO -  * Detected change in 'c:\\Users\\Revant\\SASEHacks-UCM-2025\\main.py', reloading
+2025-04-06 11:59:44,381 - werkzeug - INFO -  * Restarting with stat
+2025-04-06 11:59:46,254 - __main__ - INFO - Upload folder created/verified at: C:\Users\Revant\SASEHacks-UCM-2025\uploads
+2025-04-06 11:59:46,272 - werkzeug - WARNING -  * Debugger is active!
+2025-04-06 11:59:46,279 - werkzeug - INFO -  * Debugger PIN: 104-714-205
+2025-04-06 11:59:47,098 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 11:59:47,150 - __main__ - DEBUG - Starting resume analysis
+2025-04-06 11:59:47,152 - __main__ - DEBUG - Saving file to: uploads\Revant_Patel_Resume.pdf
+2025-04-06 11:59:47,153 - __main__ - DEBUG - File saved successfully at: uploads\Revant_Patel_Resume.pdf
+2025-04-06 11:59:47,191 - __main__ - DEBUG - Successfully extracted text. Length: 3465
+2025-04-06 11:59:47,191 - __main__ - DEBUG - Cleaned up uploaded file
+2025-04-06 11:59:47,191 - __main__ - DEBUG - Calculating semantic similarity
+2025-04-06 11:59:47,194 - __main__ - DEBUG - Finding required skills
+2025-04-06 11:59:47,195 - __main__ - DEBUG - Extracting technical terms
+2025-04-06 11:59:47,853 - __main__ - DEBUG - Matching skills
+2025-04-06 11:59:47,913 - __main__ - DEBUG - Analysis complete. Match percentage: 48.463363412586716
+2025-04-06 11:59:47,913 - __main__ - DEBUG - Matched skills: {'testing': 0.5599999999999999, 'javascript': 0.8999999999999999, 'postgresql': 0.64, 'code review': 0.38079999999999997, 'mongodb': 0.4010666666666667, 'react': 0.64, 'rest api': 0.43985454545454544, 'engineering': 0.5484705882352942, 'sql': 0.72, 'python': 0.8999999999999999, 'mysql': 0.5184000000000001, 'development': 0.72, 'database': 0.4864, 'software engineering': 0.44584615384615384, 'java': 0.8999999999999999, 'programming': 0.7649999999999999, 'go': 0.72, 'software development': 0.5029161290322581}
+2025-04-06 11:59:47,913 - __main__ - DEBUG - Categorized missing: {'Programming Languages': [], 'Web Development': [{'skill': 'vue', 'weight': 0.64, 'is_critical': False}, {'skill': 'angular', 'weight': 0.64, 'is_critical': False}], 'Databases': [], 'Cloud & DevOps': [{'skill': 'git', 'weight': 1.3499999999999999, 'is_critical': True}], 'Software Development': [{'skill': 'agile', 'weight': 0.96, 'is_critical': True}, {'skill': 'debugging', 'weight': 0.8999999999999999, 'is_critical': False}], 'AI & Data': [], 'Soft Skills': []}
+2025-04-06 11:59:47,914 - __main__ - DEBUG - Category importance: {'Programming Languages': 0, 'Web Development': 1.1520000000000001, 'Databases': 0, 'Cloud & DevOps': 1.2149999999999999, 'Software Development': 1.488, 'AI & Data': 0, 'Soft Skills': 0}
+2025-04-06 11:59:47,914 - __main__ - DEBUG - Sending response data: {'match_percentage': np.float64(48.5), 'semantic_similarity': np.float64(4.5), 'matched_skills': {'testing': 0.5599999999999999, 'javascript': 0.8999999999999999, 'postgresql': 0.64, 'code review': 0.38079999999999997, 'mongodb': 0.4010666666666667, 'react': 0.64, 'rest api': 0.43985454545454544, 'engineering': 0.5484705882352942, 'sql': 0.72, 'python': 0.8999999999999999, 'mysql': 0.5184000000000001, 'development': 0.72, 'database': 0.4864, 'software engineering': 0.44584615384615384, 'java': 0.8999999999999999, 'programming': 0.7649999999999999, 'go': 0.72, 'software development': 0.5029161290322581}, 'missing_skills': {'Programming Languages': [], 'Web Development': [{'skill': 'vue', 'weight': 0.64, 'is_critical': False}, {'skill': 'angular', 'weight': 0.64, 'is_critical': False}], 'Databases': [], 'Cloud & DevOps': [{'skill': 'git', 'weight': 1.3499999999999999, 'is_critical': True}], 'Software Development': [{'skill': 'agile', 'weight': 0.96, 'is_critical': True}, {'skill': 'debugging', 'weight': 0.8999999999999999, 'is_critical': False}], 'AI & Data': [], 'Soft Skills': []}, 'category_importance': {'Programming Languages': 0, 'Web Development': 1.1520000000000001, 'Databases': 0, 'Cloud & DevOps': 1.2149999999999999, 'Software Development': 1.488, 'AI & Data': 0, 'Soft Skills': 0}}
+2025-04-06 11:59:47,915 - werkzeug - INFO - 127.0.0.1 - - [06/Apr/2025 11:59:47] "POST /analyze HTTP/1.1" 200 -
+2025-04-06 12:00:19,699 - werkzeug - INFO -  * Detected change in 'c:\\Users\\Revant\\SASEHacks-UCM-2025\\main.py', reloading
+2025-04-06 12:00:20,138 - werkzeug - INFO -  * Restarting with stat
+2025-04-06 12:00:21,950 - __main__ - INFO - Upload folder created/verified at: C:\Users\Revant\SASEHacks-UCM-2025\uploads
+2025-04-06 12:00:21,959 - werkzeug - WARNING -  * Debugger is active!
+2025-04-06 12:00:21,963 - werkzeug - INFO -  * Debugger PIN: 104-714-205
+2025-04-06 12:00:22,697 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 12:00:32,015 - werkzeug - INFO -  * Detected change in 'c:\\Users\\Revant\\SASEHacks-UCM-2025\\main.py', reloading
+2025-04-06 12:00:32,204 - werkzeug - INFO -  * Restarting with stat
+2025-04-06 12:00:33,959 - __main__ - INFO - Upload folder created/verified at: C:\Users\Revant\SASEHacks-UCM-2025\uploads
+2025-04-06 12:00:33,968 - werkzeug - WARNING -  * Debugger is active!
+2025-04-06 12:00:33,973 - werkzeug - INFO -  * Debugger PIN: 104-714-205
+2025-04-06 12:00:34,706 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 12:01:49,545 - werkzeug - INFO -  * Detected change in 'c:\\Users\\Revant\\SASEHacks-UCM-2025\\main.py', reloading
+2025-04-06 12:01:49,746 - werkzeug - INFO -  * Restarting with stat
+2025-04-06 12:01:51,688 - __main__ - INFO - Upload folder created/verified at: C:\Users\Revant\SASEHacks-UCM-2025\uploads
+2025-04-06 12:01:51,698 - werkzeug - WARNING -  * Debugger is active!
+2025-04-06 12:01:51,702 - werkzeug - INFO -  * Debugger PIN: 104-714-205
+2025-04-06 12:01:52,449 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 12:01:52,690 - __main__ - DEBUG - Starting resume analysis
+2025-04-06 12:01:52,692 - __main__ - DEBUG - Saving file to: uploads\Revant_Patel_Resume.pdf
+2025-04-06 12:01:52,693 - __main__ - DEBUG - File saved successfully at: uploads\Revant_Patel_Resume.pdf
+2025-04-06 12:01:52,729 - __main__ - DEBUG - Successfully extracted text. Length: 3465
+2025-04-06 12:01:52,730 - __main__ - DEBUG - Cleaned up uploaded file
+2025-04-06 12:01:52,730 - __main__ - DEBUG - Calculating semantic similarity
+2025-04-06 12:01:52,752 - __main__ - DEBUG - Finding required skills
+2025-04-06 12:01:52,753 - __main__ - DEBUG - Extracting technical terms
+2025-04-06 12:01:53,411 - __main__ - DEBUG - Matching skills
+2025-04-06 12:01:53,470 - __main__ - DEBUG - Analysis complete. Match percentage: 63.28189236446353
+2025-04-06 12:01:53,470 - __main__ - DEBUG - Matched skills: {'software engineering': 0.4361538461538461, 'engineering': 0.5558823529411765, 'problem-solving': 0.4031999999999999, 'agile': 0.29866666666666664, 'react': 0.64, 'debugging': 0.3705882352941176, 'git': 0.41999999999999993, 'front end': 0.28, 'software development': 0.5099354838709678, 'rest api': 0.43636363636363634, 'innovation': 0.37333333333333324, 'angular': 0.29866666666666664, 'programming': 0.37799999999999995, 'sql': 0.72, 'go': 0.72, 'javascript': 0.8999999999999999, 'mongodb': 0.3911111111111111, 'database': 0.49066666666666664, 'testing': 0.5599999999999999, 'python': 0.8999999999999999, 'java': 0.8999999999999999, 'development': 0.72, 'mysql': 0.528, 'code review': 0.3770666666666666, 'postgresql': 0.64}
+2025-04-06 12:01:53,471 - __main__ - DEBUG - Categorized missing: {'Programming Languages': [], 'Web Development': [{'skill': 'vue', 'weight': 0.64, 'is_critical': False}], 'Databases': [], 'Cloud & DevOps': [], 'Software Development': [], 'AI & Data': [], 'Soft Skills': []}
+2025-04-06 12:01:53,471 - __main__ - DEBUG - Category importance: {'Programming Languages': 0, 'Web Development': 0.5760000000000001, 'Databases': 0, 'Cloud & DevOps': 0, 'Software Development': 0, 'AI & Data': 0, 'Soft Skills': 0}
+2025-04-06 12:01:53,471 - __main__ - DEBUG - Sending response data: {'match_percentage': np.float64(63.3), 'semantic_similarity': np.float64(34.8), 'matched_skills': {'software engineering': 0.4361538461538461, 'engineering': 0.5558823529411765, 'problem-solving': 0.4031999999999999, 'agile': 0.29866666666666664, 'react': 0.64, 'debugging': 0.3705882352941176, 'git': 0.41999999999999993, 'front end': 0.28, 'software development': 0.5099354838709678, 'rest api': 0.43636363636363634, 'innovation': 0.37333333333333324, 'angular': 0.29866666666666664, 'programming': 0.37799999999999995, 'sql': 0.72, 'go': 0.72, 'javascript': 0.8999999999999999, 'mongodb': 0.3911111111111111, 'database': 0.49066666666666664, 'testing': 0.5599999999999999, 'python': 0.8999999999999999, 'java': 0.8999999999999999, 'development': 0.72, 'mysql': 0.528, 'code review': 0.3770666666666666, 'postgresql': 0.64}, 'missing_skills': {'Programming Languages': [], 'Web Development': [{'skill': 'vue', 'weight': 0.64, 'is_critical': False}], 'Databases': [], 'Cloud & DevOps': [], 'Software Development': [], 'AI & Data': [], 'Soft Skills': []}, 'category_importance': {'Programming Languages': 0, 'Web Development': 0.5760000000000001, 'Databases': 0, 'Cloud & DevOps': 0, 'Software Development': 0, 'AI & Data': 0, 'Soft Skills': 0}}
+2025-04-06 12:01:53,472 - werkzeug - INFO - 127.0.0.1 - - [06/Apr/2025 12:01:53] "POST /analyze HTTP/1.1" 200 -
+2025-04-06 12:03:26,080 - werkzeug - INFO -  * Detected change in 'c:\\Users\\Revant\\SASEHacks-UCM-2025\\main.py', reloading
+2025-04-06 12:03:26,527 - werkzeug - INFO -  * Restarting with stat
+2025-04-06 12:03:28,378 - __main__ - INFO - Upload folder created/verified at: C:\Users\Revant\SASEHacks-UCM-2025\uploads
+2025-04-06 12:03:28,388 - werkzeug - WARNING -  * Debugger is active!
+2025-04-06 12:03:28,392 - werkzeug - INFO -  * Debugger PIN: 104-714-205
+2025-04-06 12:03:29,199 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 12:03:45,332 - werkzeug - INFO -  * Detected change in 'c:\\Users\\Revant\\SASEHacks-UCM-2025\\main.py', reloading
+2025-04-06 12:03:45,516 - werkzeug - INFO -  * Restarting with stat
+2025-04-06 12:03:47,344 - __main__ - INFO - Upload folder created/verified at: C:\Users\Revant\SASEHacks-UCM-2025\uploads
+2025-04-06 12:03:47,353 - werkzeug - WARNING -  * Debugger is active!
+2025-04-06 12:03:47,357 - werkzeug - INFO -  * Debugger PIN: 104-714-205
+2025-04-06 12:03:48,097 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 12:05:01,337 - werkzeug - INFO -  * Detected change in 'c:\\Users\\Revant\\SASEHacks-UCM-2025\\main.py', reloading
+2025-04-06 12:05:01,574 - werkzeug - INFO -  * Restarting with stat
+2025-04-06 12:05:03,644 - __main__ - INFO - Upload folder created/verified at: C:\Users\Revant\SASEHacks-UCM-2025\uploads
+2025-04-06 12:05:03,653 - werkzeug - WARNING -  * Debugger is active!
+2025-04-06 12:05:03,657 - werkzeug - INFO -  * Debugger PIN: 104-714-205
+2025-04-06 12:05:04,393 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 12:05:04,599 - __main__ - DEBUG - Starting resume analysis
+2025-04-06 12:05:04,601 - __main__ - DEBUG - Saving file to: uploads\Revant_Patel_Resume.pdf
+2025-04-06 12:05:04,601 - __main__ - DEBUG - File saved successfully at: uploads\Revant_Patel_Resume.pdf
+2025-04-06 12:05:04,637 - __main__ - DEBUG - Successfully extracted text. Length: 3465
+2025-04-06 12:05:04,637 - __main__ - DEBUG - Cleaned up uploaded file
+2025-04-06 12:05:04,638 - __main__ - DEBUG - Calculating semantic similarity
+2025-04-06 12:05:04,660 - __main__ - DEBUG - Finding required skills
+2025-04-06 12:05:04,661 - __main__ - DEBUG - Extracting technical terms
+2025-04-06 12:05:05,310 - __main__ - DEBUG - Matching skills
+2025-04-06 12:05:05,371 - __main__ - DEBUG - Analysis complete. Match percentage: 49.2551359962019
+2025-04-06 12:05:05,371 - __main__ - DEBUG - Matched skills: {'python': 0.8999999999999999, 'go': 0.72, 'database': 0.45653333333333335, 'postgresql': 0.64, 'rest api': 0.5760000000000001, 'mysql': 0.4992000000000001, 'react': 0.64, 'development': 0.72, 'programming': 0.72, 'java': 0.8999999999999999, 'software development': 0.47855483870967747, 'javascript': 0.8999999999999999, 'engineering': 0.5212941176470589, 'sql': 0.72, 'testing': 0.5599999999999999}
+2025-04-06 12:05:05,371 - __main__ - DEBUG - Categorized missing: {'Programming Languages': [{'skill': 'mongodb', 'weight': 0.64, 'is_critical': False, 'feedback': 'Skill not found in resume - Consider adding if you have this experience'}], 'Web Development': [{'skill': 'angular', 'weight': 0.64, 'is_critical': False, 'feedback': 'Skill not found in resume - Consider adding if you have this experience'}, {'skill': 'vue', 'weight': 0.64, 'is_critical': False, 'feedback': 'Skill not found in resume - Consider adding if you have this experience'}], 'Databases': [], 'Cloud & DevOps': [{'skill': 'git', 'weight': 1.3499999999999999, 'is_critical': True, 'feedback': 'Critical skill missing - Consider adding this to your resume'}], 'Software Development': [{'skill': 'agile', 'weight': 0.96, 'is_critical': True, 'feedback': 'Critical skill missing - Consider adding this to your resume'}, {'skill': 'debugging', 'weight': 0.8999999999999999, 'is_critical': False, 'feedback': 'Skill not found in resume - Consider adding if you have this experience'}, {'skill': 'code review', 'weight': 0.5599999999999999, 'is_critical': False, 'feedback': 'Skill not found in resume - Consider adding if you have this experience'}], 'AI & Data': [], 'Soft Skills': []}
+2025-04-06 12:05:05,372 - __main__ - DEBUG - Category importance: {'Programming Languages': 0.64, 'Web Development': 1.1520000000000001, 'Databases': 0, 'Cloud & DevOps': 1.2149999999999999, 'Software Development': 1.936, 'AI & Data': 0, 'Soft Skills': 0}
+2025-04-06 12:05:05,372 - __main__ - DEBUG - Sending response data: {'match_percentage': np.float64(49.3), 'semantic_similarity': np.float64(34.8), 'matched_skills': {'python': 0.8999999999999999, 'go': 0.72, 'database': 0.45653333333333335, 'postgresql': 0.64, 'rest api': 0.5760000000000001, 'mysql': 0.4992000000000001, 'react': 0.64, 'development': 0.72, 'programming': 0.72, 'java': 0.8999999999999999, 'software development': 0.47855483870967747, 'javascript': 0.8999999999999999, 'engineering': 0.5212941176470589, 'sql': 0.72, 'testing': 0.5599999999999999}, 'missing_skills': {'Programming Languages': [{'skill': 'mongodb', 'weight': 0.64, 'is_critical': False, 'feedback': 'Skill not found in resume - Consider adding if you have this experience'}], 'Web Development': [{'skill': 'angular', 'weight': 0.64, 'is_critical': False, 'feedback': 'Skill not found in resume - Consider adding if you have this experience'}, {'skill': 'vue', 'weight': 0.64, 'is_critical': False, 'feedback': 'Skill not found in resume - Consider adding if you have this experience'}], 'Databases': [], 'Cloud & DevOps': [{'skill': 'git', 'weight': 1.3499999999999999, 'is_critical': True, 'feedback': 'Critical skill missing - Consider adding this to your resume'}], 'Software Development': [{'skill': 'agile', 'weight': 0.96, 'is_critical': True, 'feedback': 'Critical skill missing - Consider adding this to your resume'}, {'skill': 'debugging', 'weight': 0.8999999999999999, 'is_critical': False, 'feedback': 'Skill not found in resume - Consider adding if you have this experience'}, {'skill': 'code review', 'weight': 0.5599999999999999, 'is_critical': False, 'feedback': 'Skill not found in resume - Consider adding if you have this experience'}], 'AI & Data': [], 'Soft Skills': []}, 'category_importance': {'Programming Languages': 0.64, 'Web Development': 1.1520000000000001, 'Databases': 0, 'Cloud & DevOps': 1.2149999999999999, 'Software Development': 1.936, 'AI & Data': 0, 'Soft Skills': 0}}
+2025-04-06 12:05:05,374 - werkzeug - INFO - 127.0.0.1 - - [06/Apr/2025 12:05:05] "POST /analyze HTTP/1.1" 200 -
+2025-04-06 12:14:35,046 - __main__ - INFO - Upload folder created/verified at: C:\Users\Revant\SASEHacks-UCM-2025\uploads
+2025-04-06 12:14:35,057 - werkzeug - INFO -  * Restarting with stat
+2025-04-06 12:14:36,764 - __main__ - INFO - Upload folder created/verified at: C:\Users\Revant\SASEHacks-UCM-2025\uploads
+2025-04-06 12:14:36,773 - werkzeug - WARNING -  * Debugger is active!
+2025-04-06 12:14:36,777 - werkzeug - INFO -  * Debugger PIN: 104-714-205
+2025-04-06 12:14:37,506 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 12:14:40,383 - werkzeug - INFO - 127.0.0.1 - - [06/Apr/2025 12:14:40] "GET / HTTP/1.1" 200 -
+2025-04-06 12:17:28,139 - werkzeug - INFO - 127.0.0.1 - - [06/Apr/2025 12:17:28] "GET / HTTP/1.1" 200 -
+2025-04-06 12:17:30,213 - werkzeug - INFO - 127.0.0.1 - - [06/Apr/2025 12:17:30] "GET / HTTP/1.1" 200 -
+2025-04-06 12:17:34,577 - werkzeug - INFO - 127.0.0.1 - - [06/Apr/2025 12:17:34] "GET / HTTP/1.1" 200 -
+2025-04-06 12:17:36,298 - werkzeug - INFO - 127.0.0.1 - - [06/Apr/2025 12:17:36] "GET / HTTP/1.1" 200 -
+2025-04-06 12:17:36,934 - werkzeug - INFO - 127.0.0.1 - - [06/Apr/2025 12:17:36] "GET / HTTP/1.1" 200 -
+2025-04-06 12:17:51,785 - werkzeug - INFO - 127.0.0.1 - - [06/Apr/2025 12:17:51] "GET / HTTP/1.1" 200 -
+2025-04-06 12:17:55,223 - werkzeug - INFO - 127.0.0.1 - - [06/Apr/2025 12:17:55] "GET / HTTP/1.1" 200 -
