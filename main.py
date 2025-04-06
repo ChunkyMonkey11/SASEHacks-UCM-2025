@@ -20,6 +20,31 @@ from skill_data import (
     EXPERIENCE_INDICATORS, SKILL_CATEGORIES, CRITICAL_SKILLS
 )
 
+# Check if NLTK data is already downloaded
+def initialize_nltk():
+    """Initialize NLTK components required for text analysis."""
+    try:
+        # Only download if not already present
+        nltk_data_path = os.path.expanduser('~/nltk_data')
+        required_packages = ['punkt', 'averaged_perceptron_tagger', 'wordnet', 'stopwords']
+        
+        for package in required_packages:
+            if not os.path.exists(os.path.join(nltk_data_path, package)):
+                print(f"Downloading NLTK package: {package}")
+                nltk.download(package, quiet=True)
+        
+        # Initialize stopwords
+        global STOPWORDS
+        STOPWORDS = set(stopwords.words('english'))
+        
+    except Exception as e:
+        print(f"Error initializing NLTK: {str(e)}")
+        raise
+
+# Initialize NLTK when module is loaded
+initialize_nltk()
+
+# API KEY FOR OPENROUTER "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"
 def calculate_similarity(text1, text2):
     """Calculate semantic similarity between two texts using TF-IDF."""
     # Create a custom tokenizer that preserves technical terms
@@ -59,13 +84,6 @@ def calculate_similarity(text1, text2):
         similarity = 0.7 * similarity + 0.3 * technical_boost
     
     return similarity
-
-# Download required NLTK data
-nltk.download('punkt', quiet=True)
-nltk.download('stopwords', quiet=True)
-nltk.download('wordnet', quiet=True)
-nltk.download('averaged_perceptron_tagger', quiet=True)
-
 
 def read_pdf(file_path):
     """Read text content from a PDF file."""
@@ -220,10 +238,9 @@ def extract_technical_terms(text):
     """Extract technical terms from text using NLP techniques."""
     # Tokenize and clean text
     tokens = word_tokenize(text.lower())
-    stop_words = set(stopwords.words('english'))
     
     # Remove stopwords and punctuation
-    tokens = [token for token in tokens if token.isalnum() and token not in stop_words]
+    tokens = [token for token in tokens if token.isalnum() and token not in STOPWORDS]
     
     # Lemmatize tokens
     lemmatizer = WordNetLemmatizer()
@@ -442,7 +459,7 @@ def match_resume_skills(resume_skills, required_skills):
                             matched_skills[skill] = weight * 0.8
                             found_match = True
                             skill_feedback[skill] = f"Match through related skill - Found: {best_related}"
-                            break
+                    break
             
             # Use best match if found with strict threshold
             if best_match and best_match[1] > 0.7:  # Increased threshold for partial matches
@@ -614,6 +631,242 @@ def detect_skill_level(context):
         if any(indicator in context.lower() for indicator in indicators):
             return level
     return 'mentioned'
+
+def identify_sections(text):
+    """Identify different sections in the resume."""
+    sections = {}
+    lines = text.split('\n')
+    current_section = None
+    
+    # Common section headers in resumes
+    RESUME_SECTIONS = {
+        'experience': ['experience', 'work experience', 'employment', 'work history', 'professional experience'],
+        'education': ['education', 'academic background', 'qualifications', 'academic qualifications'],
+        'skills': ['skills', 'technical skills', 'core competencies', 'expertise', 'technologies'],
+        'projects': ['projects', 'personal projects', 'portfolio', 'technical projects'],
+        'certifications': ['certifications', 'certificates', 'professional certifications']
+    }
+    
+    # Process each line
+    section_content = []
+    for line in lines:
+        line = line.strip().lower()
+        if not line:
+            continue
+            
+        # Check if line is a section header
+        found_section = None
+        for section_type, keywords in RESUME_SECTIONS.items():
+            if any(keyword in line for keyword in keywords):
+                found_section = section_type
+                break
+                
+        if found_section:
+            # Save previous section content
+            if current_section:
+                sections[current_section] = section_content
+            # Start new section
+            current_section = found_section
+            section_content = []
+        elif current_section:
+            section_content.append(line)
+    
+    # Save last section
+    if current_section and section_content:
+        sections[current_section] = section_content
+    
+    return sections
+
+def analyze_job_and_resume(job_description, resume_text):
+    """Analyze job description and resume, return matching results with detailed recommendations."""
+    # Get required skills from job description
+    required_skills = find_required_skills(job_description)
+    
+    # Extract skills from resume
+    resume_skills = extract_technical_terms(resume_text)
+    
+    # Match skills
+    matched_skills, missing_skills, category_importance = match_resume_skills(resume_skills, required_skills)
+    
+    # Calculate match percentage
+    total_weight = sum(required_skills.values())
+    matched_weight = sum(matched_skills.values())
+    match_percentage = (matched_weight / total_weight * 100) if total_weight > 0 else 0
+    
+    # Calculate semantic similarity for content match
+    semantic_similarity = calculate_similarity(resume_text, job_description) * 100
+    
+    # Identify resume sections
+    sections = identify_sections(resume_text)
+    
+    # Generate detailed recommendations
+    recommendations = []
+    
+    # Define skill categories with more specific groupings
+    skill_categories = {
+        'cloud_devops': {
+            'skills': ['aws', 'azure', 'gcp', 'docker', 'kubernetes', 'jenkins', 'terraform', 'ci/cd', 'devops'],
+            'context': 'infrastructure and deployment automation',
+            'project_ideas': [
+                'Set up a CI/CD pipeline using Jenkins and Docker',
+                'Deploy a microservices application on Kubernetes',
+                'Create infrastructure as code using Terraform'
+            ]
+        },
+        'software_development': {
+            'skills': ['python', 'java', 'javascript', 'c++', 'typescript', 'react', 'angular', 'node'],
+            'context': 'software development and programming',
+            'project_ideas': [
+                'Build a full-stack web application',
+                'Develop a RESTful API service',
+                'Create a responsive front-end interface'
+            ]
+        },
+        'databases': {
+            'skills': ['mysql', 'postgresql', 'mongodb', 'redis', 'sql', 'nosql'],
+            'context': 'database management and data storage',
+            'project_ideas': [
+                'Design and implement a database schema',
+                'Build a data pipeline',
+                'Create a caching layer with Redis'
+            ]
+        },
+        'testing_qa': {
+            'skills': ['unit testing', 'integration testing', 'test automation', 'selenium', 'jest', 'pytest'],
+            'context': 'quality assurance and testing',
+            'project_ideas': [
+                'Implement automated test suites',
+                'Set up end-to-end testing',
+                'Create test documentation'
+            ]
+        }
+    }
+    
+    # Analyze missing skills by category
+    for category_name, category_info in skill_categories.items():
+        missing_in_category = []
+        for skill in missing_skills:
+            if any(tech in skill.lower() for tech in category_info['skills']):
+                missing_in_category.append(skill)
+        
+        if missing_in_category:
+            # Experience section recommendations
+            if 'experience' in sections:
+                recommendations.append({
+                    'section': 'Experience',
+                    'suggestion': f"Highlight your experience with {category_info['context']} using {', '.join(missing_in_category)}",
+                    'skills': missing_in_category,
+                    'examples': [
+                        f"• Implemented {missing_in_category[0]} to improve {category_info['context']}",
+                        f"• Developed solutions using {', '.join(missing_in_category[:2])}",
+                        f"• Collaborated on projects involving {category_info['context']}"
+                    ]
+                })
+            
+            # Skills section recommendations
+            if 'skills' in sections:
+                recommendations.append({
+                    'section': 'Skills',
+                    'suggestion': f"Add these {category_name.replace('_', ' ')} skills to your technical skills section",
+                    'skills': missing_in_category,
+                    'examples': [
+                        f"• List skills under a '{category_name.replace('_', ' ').title()}' subsection",
+                        f"• Include proficiency levels (e.g., Proficient in {missing_in_category[0]})",
+                        "• Group related technologies together"
+                    ]
+                })
+            
+            # Projects section recommendations
+            if 'projects' in sections or len(missing_in_category) > 2:
+                recommendations.append({
+                    'section': 'Projects',
+                    'suggestion': f"Create projects showcasing {category_info['context']} skills",
+                    'skills': missing_in_category,
+                    'examples': category_info['project_ideas']
+                })
+    
+    # Add general recommendations if match percentage is low
+    if match_percentage < 70:
+        recommendations.append({
+            'section': 'General',
+            'suggestion': "Improve overall resume alignment with the job description",
+            'skills': list(missing_skills.keys())[:3],
+            'examples': [
+                "• Use industry-standard terminology from the job description",
+                "• Quantify your achievements with metrics and numbers",
+                "• Focus on relevant experience and projects"
+            ]
+        })
+    
+    # Add keyword optimization if semantic similarity is low
+    if semantic_similarity < 60:
+        recommendations.append({
+            'section': 'Keywords',
+            'suggestion': "Optimize your resume with relevant keywords",
+            'skills': list(required_skills.keys())[:5],
+            'examples': [
+                "• Include key terms from the job description naturally in your bullet points",
+                "• Use similar language and terminology as the job posting",
+                "• Highlight technologies and tools mentioned in the requirements"
+            ]
+        })
+    
+    return {
+        'match_percentage': round(match_percentage, 1),
+        'semantic_similarity': round(semantic_similarity, 1),
+        'matched_skills': matched_skills,
+        'missing_skills': missing_skills,
+        'recommendations': recommendations
+    }
+
+def get_chat_response(message, resume_data):
+    """Get response from OpenRouter API."""
+    try:
+        print(f"\nProcessing chat message: {message}")
+        print(f"Resume data available: {bool(resume_data)}")
+        
+        headers = {
+            'Authorization': f'Bearer {os.getenv("OPENROUTER_API_KEY")}',
+            'HTTP-Referer': 'http://localhost:8080',
+            'Content-Type': 'application/json'
+        }
+        
+        # Create system message with resume context
+        system_message = f"""You are an AI resume assistant analyzing the following resume data:
+        Match Percentage: {resume_data.get('match_percentage')}%
+        Matched Skills: {', '.join(resume_data.get('matched_skills', {}).keys())}
+        Missing Skills: {resume_data.get('missing_skills', {})}
+        
+        Provide specific, actionable advice about how the resume can be improved."""
+        
+        print("Sending request to OpenRouter API...")
+        
+        payload = {
+            'model': 'openai/gpt-3.5-turbo',
+            'messages': [
+                {'role': 'system', 'content': system_message},
+                {'role': 'user', 'content': message}
+            ]
+        }
+        
+        response = requests.post(
+            'https://openrouter.ai/api/v1/chat/completions',
+            headers=headers,
+            json=payload
+        )
+        
+        print(f"API Response status: {response.status_code}")
+        
+        response_data = response.json()
+        if 'choices' not in response_data:
+            print(f"Unexpected API response: {response_data}")
+            raise ValueError("Invalid API response format")
+            
+        return response_data['choices'][0]['message']['content']
+        
+    except Exception as e:
+        print(f"Error in get_chat_response: {str(e)}")
+        raise
 
 def main():
     # File paths

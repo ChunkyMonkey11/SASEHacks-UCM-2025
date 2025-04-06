@@ -1,0 +1,284 @@
+import PyPDF2
+import nltk
+from nltk.tokenize import word_tokenize, sent_tokenize
+from nltk.corpus import stopwords
+from collections import Counter
+import os
+import re
+
+# Download required NLTK data
+nltk.download('punkt', quiet=True)
+nltk.download('stopwords', quiet=True)
+
+# Technical skills and synonyms
+TECHNICAL_SKILLS = {
+    # Programming Languages
+    'python', 'java', 'javascript', 'c++', 'c#', 'typescript', 'go', 'rust', 'kotlin',
+    'swift', 'ruby', 'php', 'scala', 'perl', 'r', 'sql', 'html', 'css',
+
+    # Web Development
+    'react', 'angular', 'vue', 'node', 'express', 'django', 'flask', 'spring',
+    'jquery', 'bootstrap', 'tailwind', 'webpack', 'api', 'rest', 'graphql',
+    'frontend', 'backend', 'fullstack', 'microservices',
+    
+    # Databases
+    'mysql', 'postgresql', 'mongodb', 'redis', 'elasticsearch', 'firebase',
+    'database', 'sql', 'nosql',
+
+    # Cloud & DevOps
+    'aws', 'azure', 'gcp', 'docker', 'kubernetes', 'jenkins', 'terraform',
+    'ci/cd', 'devops', 'cloud',
+    
+    # AI/ML & Data Science
+    'machine learning', 'deep learning', 'ai', 'tensorflow', 'pytorch',
+    'pandas', 'numpy', 'data science', 'nlp', 'computer vision',
+    
+    # Tools & Practices
+    'git', 'agile', 'scrum', 'jira', 'testing', 'debugging',
+    'linux', 'unix', 'windows', 'security', 'networking'
+}
+
+SKILL_SYNONYMS = {
+    'python': ['py', 'python3'],
+    'javascript': ['js', 'es6', 'node.js'],
+    'java': ['spring', 'j2ee'],
+    'c++': ['cpp'],
+    'machine learning': ['ml', 'deep learning'],
+    'artificial intelligence': ['ai', 'ml'],
+    'aws': ['amazon web services', 'amazon cloud'],
+    'azure': ['microsoft azure'],
+    'gcp': ['google cloud'],
+    'sql': ['mysql', 'postgresql', 'oracle'],
+    'nosql': ['mongodb', 'cassandra'],
+    'frontend': ['front end', 'front-end'],
+    'backend': ['back end', 'back-end'],
+    'fullstack': ['full stack', 'full-stack'],
+    'react': ['reactjs', 'react.js'],
+    'git': ['github', 'version control'],
+    'ci/cd': ['continuous integration', 'continuous deployment'],
+    'docker': ['containerization', 'container'],
+    'cloud': ['cloud computing', 'cloud services']
+}
+
+# Common resume section headers
+RESUME_SECTIONS = {
+    'experience': ['experience', 'work experience', 'employment', 'work history'],
+    'skills': ['skills', 'technical skills', 'core competencies', 'expertise'],
+    'education': ['education', 'academic background', 'qualifications'],
+    'projects': ['projects', 'personal projects', 'portfolio', 'side projects'],
+    'certifications': ['certifications', 'certificates', 'professional certifications']
+}
+
+def read_pdf(file_path):
+    """Read text content from a PDF file."""
+    try:
+        if not os.path.exists(file_path):
+            print(f"Error: PDF file not found at {file_path}")
+            return None
+            
+        with open(file_path, 'rb') as file:
+            pdf_reader = PyPDF2.PdfReader(file)
+            text = ""
+            for page in pdf_reader.pages:
+                text += page.extract_text()
+            return text
+            
+    except Exception as e:
+        print(f"Error reading PDF: {str(e)}")
+        return None
+
+def identify_sections(text):
+    """Identify different sections in the resume."""
+    sections = {}
+    lines = text.split('\n')
+    current_section = None
+    
+    for line in lines:
+        line = line.strip().lower()
+        if not line:
+            continue
+            
+        # Check if line is a section header
+        for section_type, keywords in RESUME_SECTIONS.items():
+            if any(keyword in line for keyword in keywords):
+                current_section = section_type
+                sections[current_section] = []
+                break
+        
+        if current_section:
+            sections[current_section].append(line)
+            
+    return sections
+
+def extract_technical_terms(text):
+    """Extract technical terms from text using NLP techniques."""
+    if not text:
+        return []
+    
+    # Tokenize and clean the text
+    tokens = word_tokenize(text.lower())
+    stop_words = set(stopwords.words('english'))
+    tokens = [token for token in tokens if token.isalpha() and token not in stop_words]
+    
+    # Find technical terms
+    technical_terms = set()
+    
+    # Process tokens and their combinations
+    for i in range(len(tokens)):
+        # Single word terms
+        if tokens[i] in TECHNICAL_SKILLS:
+            technical_terms.add(tokens[i])
+            
+        # Two-word terms
+        if i < len(tokens) - 1:
+            two_word_term = f"{tokens[i]} {tokens[i+1]}"
+            if two_word_term in TECHNICAL_SKILLS:
+                technical_terms.add(two_word_term)
+                
+        # Three-word terms
+        if i < len(tokens) - 2:
+            three_word_term = f"{tokens[i]} {tokens[i+1]} {tokens[i+2]}"
+            if three_word_term in TECHNICAL_SKILLS:
+                technical_terms.add(three_word_term)
+    
+    # Add synonyms
+    for term in list(technical_terms):
+        if term in SKILL_SYNONYMS:
+            technical_terms.update(SKILL_SYNONYMS[term])
+        
+    return list(technical_terms)
+
+def find_required_skills(job_description):
+    """Extract required skills from job description."""
+    technical_terms = extract_technical_terms(job_description)
+    term_frequency = Counter(technical_terms)
+    
+    # Consider skills that appear at least once
+    required_skills = [(term, freq) for term, freq in term_frequency.items()]
+    required_skills.sort(key=lambda x: x[1], reverse=True)
+    
+    return [skill for skill, _ in required_skills]
+
+def match_resume_skills(resume_text, required_skills):
+    """Match resume skills against required skills."""
+    if not resume_text:
+        return []
+    
+    resume_terms = extract_technical_terms(resume_text)
+    matched_skills = []
+    
+    for skill in required_skills:
+        # Direct match
+        if skill in resume_terms:
+            matched_skills.append(skill)
+            continue
+            
+        # Synonym match
+        if skill in SKILL_SYNONYMS:
+            if any(synonym in resume_terms for synonym in SKILL_SYNONYMS[skill]):
+                    matched_skills.append(skill)
+    
+    return matched_skills
+
+def analyze_job_and_resume(job_description, resume_path):
+    """Analyze job description and resume, return matching results with section-specific recommendations."""
+    # Get required skills from job description
+    required_skills = find_required_skills(job_description)
+    
+    # Read and analyze resume
+    resume_text = read_pdf(resume_path)
+    if not resume_text:
+        return {
+            'matched_skills': [],
+            'missing_skills': required_skills,
+            'match_percentage': 0.0,
+            'recommendations': []
+        }
+    
+    # Match skills
+    matched_skills = match_resume_skills(resume_text, required_skills)
+    missing_skills = [skill for skill in required_skills if skill not in matched_skills]
+        
+        # Calculate match percentage
+    match_percentage = (len(matched_skills) / len(required_skills)) * 100 if required_skills else 0.0
+    
+    # Identify resume sections
+    sections = identify_sections(resume_text)
+    
+    # Generate section-specific recommendations
+    recommendations = []
+    
+    # Group missing skills by category
+    skill_categories = {
+        'cloud_devops': ['aws', 'azure', 'gcp', 'docker', 'kubernetes', 'jenkins', 'terraform', 'ci/cd', 'devops', 'cloud'],
+        'software_development': ['python', 'java', 'javascript', 'c++', 'c#', 'typescript', 'react', 'angular', 'vue', 'node', 'express', 'django', 'flask', 'spring'],
+        'databases': ['mysql', 'postgresql', 'mongodb', 'redis', 'elasticsearch', 'firebase', 'sql', 'nosql'],
+        'ai_ml': ['machine learning', 'deep learning', 'ai', 'tensorflow', 'pytorch', 'pandas', 'numpy', 'data science', 'nlp', 'computer vision']
+    }
+    
+    # Check each category of missing skills
+    for category, skills in skill_categories.items():
+        missing_in_category = [skill for skill in missing_skills if skill in skills]
+        if missing_in_category:
+            # Determine best section to add skills
+            if category in ['cloud_devops', 'software_development']:
+                if 'experience' in sections:
+                    recommendations.append({
+                        'section': 'Experience',
+                        'suggestion': f"Add {', '.join(missing_in_category)} to your work experience descriptions",
+                        'skills': missing_in_category
+                    })
+                elif 'skills' in sections:
+                    recommendations.append({
+                        'section': 'Skills',
+                        'suggestion': f"Add {', '.join(missing_in_category)} to your technical skills section",
+                        'skills': missing_in_category
+                    })
+            elif category == 'databases':
+                if 'experience' in sections:
+                    recommendations.append({
+                        'section': 'Experience',
+                        'suggestion': f"Add database experience with {', '.join(missing_in_category)} to your work experience",
+                        'skills': missing_in_category
+                    })
+            elif category == 'ai_ml':
+                if 'projects' in sections:
+                    recommendations.append({
+                        'section': 'Projects',
+                        'suggestion': f"Add projects using {', '.join(missing_in_category)} to showcase your expertise",
+                        'skills': missing_in_category
+                    })
+    
+    return {
+        'matched_skills': matched_skills,
+        'missing_skills': missing_skills,
+        'match_percentage': match_percentage,
+        'recommendations': recommendations
+    }
+
+# Example usage
+if __name__ == "__main__":
+    job_desc = """
+    We are looking for a Python developer with experience in:
+    - Web development using Django or Flask
+    - Database design with PostgreSQL
+    - Version control using Git
+    - AWS cloud services
+    - REST API development
+    """
+    
+    resume_path = "/path/to/your/resume.pdf"
+    
+    results = analyze_job_and_resume(job_desc, resume_path)
+    print(f"\nMatch Percentage: {results['match_percentage']:.1f}%")
+    print("\nMatched Skills:")
+    for skill in results['matched_skills']:
+        print(f"- {skill}")
+    print("\nMissing Skills:")
+    for skill in results['missing_skills']:
+        print(f"- {skill}")
+    print("\nRecommendations:")
+    for rec in results['recommendations']:
+        print(f"\n{rec['section']}:")
+        print(f"- {rec['suggestion']}")
+        print(f"  Skills to add: {', '.join(rec['skills'])}") 
