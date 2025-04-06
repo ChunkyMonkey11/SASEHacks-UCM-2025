@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeRanker - AI Resume Analyzer</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #a8e6cf 0%, #dcedc1 100%);
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .progress-ring {
+            transform: rotate(-90deg);
+        }
+        .progress-ring-circle {
+            transition: stroke-dashoffset 0.35s;
+            transform-origin: 50% 50%;
+        }
+        .skill-tag {
+            transition: all 0.2s ease;
+        }
+        .skill-tag:hover {
+            transform: scale(1.05);
+        }
+        .chat-container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 24px;
+            margin-top: 32px;
+        }
+        .chat-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .chat-header i {
+            font-size: 24px;
+            color: #6366f1;
+            margin-right: 12px;
+        }
+        .chat-header h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin: 0;
+        }
+        .chat-messages {
+            height: 400px;
+            overflow-y: auto;
+            padding: 16px;
+            background: #f9fafb;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .message {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        .message.loading {
+            opacity: 0.6;
+        }
+        .message-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .user-avatar {
+            background: #818cf8;
+            color: white;
+        }
+        .bot-avatar {
+            background: #6366f1;
+            color: white;
+        }
+        .message-content {
+            flex: 1;
+            background: white;
+            padding: 12px 16px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            max-width: 80%;
+        }
+        .user-message .message-content {
+            background: #6366f1;
+            color: white;
+            margin-left: auto;
+        }
+        .bot-message .message-content {
+            background: white;
+            color: #1f2937;
+        }
+        .chat-input-container {
+            display: flex;
+            gap: 12px;
+            background: #f9fafb;
+            padding: 16px;
+            border-radius: 12px;
+        }
+        .chat-input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 14px;
+            background: white;
+            transition: border-color 0.2s ease;
+        }
+        .chat-input:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
+        }
+        .chat-submit {
+            background: #6366f1;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .chat-submit:hover {
+            background: #4f46e5;
+            transform: translateY(-1px);
+        }
+        .chat-submit i {
+            font-size: 16px;
+        }
+        .example-questions {
+            margin-top: 20px;
+            background: #f3f4f6;
+            border-radius: 12px;
+            padding: 16px;
+        }
+        .example-questions h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #4b5563;
+            margin-bottom: 12px;
+        }
+        .example-question {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            color: #6366f1;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        .example-question i {
+            margin-right: 8px;
+            font-size: 14px;
+        }
+        .example-question:hover {
+            background: #e5e7eb;
+            color: #4f46e5;
+        }
+        .chat-messages {
+            scrollbar-width: thin;
+            scrollbar-color: #cbd5e1 #f1f5f9;
+        }
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+        .chat-messages::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 3px;
+        }
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="min-h-screen gradient-bg">
+    <div class="container mx-auto px-4 py-8">
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">ResumeRanker</h1>
+            <p class="text-gray-600">Optimize your resume for job applications using AI</p>
+        </div>
+
+        <!-- Input Form -->
+        <div class="card p-6 mb-8">
+            <form id="analyzeForm" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="jobDescription">
+                            <i class="fas fa-briefcase mr-2"></i>Job Description
+                        </label>
+                        <textarea id="jobDescription" name="job_description" rows="6" 
+                            class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+                            placeholder="Paste the job description here..."></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="resume">
+                            <i class="fas fa-file-alt mr-2"></i>Your Resume
+                        </label>
+                        <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                            <input type="file" id="resume" name="resume" accept=".pdf,.docx" class="hidden">
+                            <label for="resume" class="cursor-pointer">
+                                <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-2"></i>
+                                <p class="text-sm text-gray-600">Drop your resume here or click to upload</p>
+                                <p class="text-xs text-gray-500 mt-1">Supported formats: PDF, DOCX</p>
+                            </label>
+                        </div>
+                        <div id="fileInfo" class="mt-2 text-sm text-gray-600"></div>
+                    </div>
+                </div>
+                <button type="submit" 
+                    class="w-full bg-green-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-green-600 transition duration-200 flex items-center justify-center">
+                    <i class="fas fa-magic mr-2"></i>
+                    Analyze Resume
+                </button>
+            </form>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results" class="hidden space-y-6">
+            <!-- Match Scores -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="card p-6 text-center transform hover:scale-105 transition duration-200">
+                    <div class="relative w-32 h-32 mx-auto mb-4">
+                        <svg class="progress-ring" width="120" height="120">
+                            <circle class="text-gray-200" stroke-width="8" stroke="currentColor" fill="transparent" r="52" cx="60" cy="60"/>
+                            <circle class="progress-ring-circle text-green-500" stroke-width="8" stroke="currentColor" fill="transparent" r="52" cx="60" cy="60"/>
+                        </svg>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="text-3xl font-bold final-score">0%</span>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-semibold">Overall Match</h3>
+                </div>
+                <div class="card p-6 text-center transform hover:scale-105 transition duration-200">
+                    <div class="relative w-32 h-32 mx-auto mb-4">
+                        <svg class="progress-ring" width="120" height="120">
+                            <circle class="text-gray-200" stroke-width="8" stroke="currentColor" fill="transparent" r="52" cx="60" cy="60"/>
+                            <circle class="progress-ring-circle text-blue-500" stroke-width="8" stroke="currentColor" fill="transparent" r="52" cx="60" cy="60"/>
+                        </svg>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="text-3xl font-bold skill-score">0%</span>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-semibold">Skill Match</h3>
+                </div>
+                <div class="card p-6 text-center transform hover:scale-105 transition duration-200">
+                    <div class="relative w-32 h-32 mx-auto mb-4">
+                        <svg class="progress-ring" width="120" height="120">
+                            <circle class="text-gray-200" stroke-width="8" stroke="currentColor" fill="transparent" r="52" cx="60" cy="60"/>
+                            <circle class="progress-ring-circle text-purple-500" stroke-width="8" stroke="currentColor" fill="transparent" r="52" cx="60" cy="60"/>
+                        </svg>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="text-3xl font-bold semantic-score">0%</span>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-semibold">Content Match</h3>
+                </div>
+            </div>
+
+            <!-- Skills Analysis -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold mb-4 text-green-600 flex items-center">
+                        <i class="fas fa-check-circle mr-2"></i>Matched Skills
+                    </h3>
+                    <div id="matchedSkills" class="space-y-4"></div>
+                </div>
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold mb-4 text-red-600 flex items-center">
+                        <i class="fas fa-exclamation-circle mr-2"></i>Missing Skills
+                    </h3>
+                    <div id="missingSkills" class="space-y-4"></div>
+                </div>
+            </div>
+
+            <!-- Recommendations Section -->
+            <div class="card p-6">
+                <h3 class="text-xl font-bold mb-4 text-blue-600 flex items-center">
+                    <i class="fas fa-lightbulb mr-2"></i>How to Improve Your Resume
+                </h3>
+                <div id="recommendations" class="space-y-6">
+                    <!-- Experience Section -->
+                    <div class="recommendation-section bg-white rounded-lg p-4 shadow-sm">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+                            <i class="fas fa-briefcase text-blue-500 mr-2"></i>Work Experience
+                        </h4>
+                        <ul class="experience-recommendations space-y-4"></ul>
+                    </div>
+                    
+                    <!-- Skills Section -->
+                    <div class="recommendation-section bg-white rounded-lg p-4 shadow-sm">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+                            <i class="fas fa-tools text-green-500 mr-2"></i>Technical Skills
+                        </h4>
+                        <ul class="skills-recommendations space-y-4"></ul>
+                    </div>
+                    
+                    <!-- Projects Section -->
+                    <div class="recommendation-section bg-white rounded-lg p-4 shadow-sm">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+                            <i class="fas fa-project-diagram text-purple-500 mr-2"></i>Projects
+                        </h4>
+                        <ul class="projects-recommendations space-y-4"></ul>
+                    </div>
+
+                    <!-- General Section -->
+                    <div class="recommendation-section bg-white rounded-lg p-4 shadow-sm">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+                            <i class="fas fa-list-check text-orange-500 mr-2"></i>General Improvements
+                        </h4>
+                        <ul class="general-recommendations space-y-4"></ul>
+                    </div>
+
+                    <!-- Keywords Section -->
+                    <div class="recommendation-section bg-white rounded-lg p-4 shadow-sm">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+                            <i class="fas fa-key text-yellow-500 mr-2"></i>Keyword Optimization
+                        </h4>
+                        <ul class="keywords-recommendations space-y-4"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loading" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <div class="bg-white p-6 rounded-lg shadow-xl flex flex-col items-center">
+                <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-green-500 mb-4"></div>
+                <p class="text-gray-700">Analyzing your resume...</p>
+            </div>
+        </div>
+
+        <!-- Chat Interface -->
+        <div class="chat-container">
+            <div class="chat-header">
+                <i class="fas fa-robot"></i>
+                <h2>Chat with Your Resume</h2>
+            </div>
+
+            <div id="chatMessages" class="chat-messages">
+                <!-- Initial bot message -->
+                <div class="message bot-message">
+                    <div class="message-avatar bot-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <p>Hi! I'm your resume assistant. You can ask me questions about your resume, improvements, or career advice. Try asking:</p>
+                        <ul class="mt-2 space-y-1">
+                            <li>• What skills should I emphasize?</li>
+                            <li>• How can I improve my experience section?</li>
+                            <li>• What projects would showcase my abilities?</li>
+                            <li>• How does my resume match this job?</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <form id="chatForm" class="chat-input-container">
+                <input type="text" 
+                       id="chatInput" 
+                       class="chat-input"
+                       placeholder="Ask a question about your resume..."
+                       autocomplete="off">
+                <button type="submit" class="chat-submit">
+                    <i class="fas fa-paper-plane"></i>
+                    Send
+                </button>
+            </form>
+
+            <div class="example-questions">
+                <h3>Quick Questions</h3>
+                <div class="example-question" onclick="document.getElementById('chatInput').value='What skills should I emphasize?'">
+                    <i class="fas fa-lightbulb"></i>
+                    What skills should I emphasize?
+                </div>
+                <div class="example-question" onclick="document.getElementById('chatInput').value='How can I improve my experience section?'">
+                    <i class="fas fa-briefcase"></i>
+                    How can I improve my experience section?
+                </div>
+                <div class="example-question" onclick="document.getElementById('chatInput').value='What projects would showcase my abilities?'">
+                    <i class="fas fa-code"></i>
+                    What projects would showcase my abilities?
+                </div>
+                <div class="example-question" onclick="document.getElementById('chatInput').value='How does my resume match this job?'">
+                    <i class="fas fa-check-circle"></i>
+                    How does my resume match this job?
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let resumeData = null;
+
+        // File upload preview
+        document.getElementById('resume').addEventListener('change', function(e) {
+            const fileInfo = document.getElementById('fileInfo');
+            if (this.files && this.files[0]) {
+                const file = this.files[0];
+                fileInfo.innerHTML = `
+                    <div class="flex items-center">
+                        <i class="fas fa-file-alt text-green-500 mr-2"></i>
+                        <span>${file.name}</span>
+                    </div>
+                `;
+            }
+        });
+
+        function setProgress(element, percentage) {
+            const circle = element.querySelector('.progress-ring-circle');
+            const radius = circle.r.baseVal.value;
+            const circumference = radius * 2 * Math.PI;
+            circle.style.strokeDasharray = `${circumference} ${circumference}`;
+            circle.style.strokeDashoffset = circumference - (percentage / 100) * circumference;
+        }
+
+        function displaySkills(container, skills, isMatched) {
+            container.innerHTML = '';
+            
+            if (isMatched) {
+                if (!skills || typeof skills !== 'object') return;
+
+                const skillList = Object.entries(skills).map(([skill, weight]) => ({
+                    skill: skill,
+                    weight: Number(weight).toFixed(2)
+                }));
+                
+                const categoryDiv = document.createElement('div');
+                categoryDiv.className = 'mb-4';
+                categoryDiv.innerHTML = `
+                    <div class="flex flex-wrap gap-2">
+                        ${skillList.map(skill => `
+                            <span class="skill-tag px-3 py-1 rounded-full text-sm ${isMatched ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'} hover:shadow-md">
+                                ${skill.skill}
+                                <span class="ml-1 opacity-75">(${skill.weight})</span>
+                            </span>
+                        `).join('')}
+                    </div>
+                `;
+                container.appendChild(categoryDiv);
+            } else {
+                if (!skills || typeof skills !== 'object') return;
+                
+                for (const [category, skillList] of Object.entries(skills)) {
+                    if (!Array.isArray(skillList) || skillList.length === 0) continue;
+                    
+                    const categoryDiv = document.createElement('div');
+                    categoryDiv.className = 'mb-4';
+                    categoryDiv.innerHTML = `
+                        <h4 class="font-semibold mb-2">${category}</h4>
+                        <div class="flex flex-wrap gap-2">
+                            ${skillList.map(skill => `
+                                <span class="skill-tag px-3 py-1 rounded-full text-sm bg-red-100 text-red-800 hover:shadow-md">
+                                    ${skill.skill}
+                                    <span class="ml-1 opacity-75">(${Number(skill.weight).toFixed(2)})</span>
+                                </span>
+                            `).join('')}
+                        </div>
+                    `;
+                    container.appendChild(categoryDiv);
+                }
+            }
+        }
+
+        document.getElementById('analyzeForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = new FormData(e.target);
+            const loading = document.getElementById('loading');
+            const results = document.getElementById('results');
+            
+            try {
+                loading.classList.remove('hidden');
+                results.classList.add('hidden');
+                
+                const response = await fetch('/analyze', {
+                    method: 'POST',
+                    body: form
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    // Store the analysis data for the chat
+                    resumeData = data;
+                    
+                    // Update progress rings with animation
+                    setProgress(document.querySelector('.final-score').parentElement.parentElement, data.match_percentage);
+                    setProgress(document.querySelector('.skill-score').parentElement.parentElement, data.match_percentage);
+                    setProgress(document.querySelector('.semantic-score').parentElement.parentElement, data.semantic_similarity);
+
+                    // Update score text
+                    document.querySelector('.final-score').textContent = `${Math.round(data.match_percentage)}%`;
+                    document.querySelector('.skill-score').textContent = `${Math.round(data.match_percentage)}%`;
+                    document.querySelector('.semantic-score').textContent = `${Math.round(data.semantic_similarity)}%`;
+
+                    // Display skills
+                    displaySkills(document.getElementById('matchedSkills'), data.matched_skills, true);
+                    displaySkills(document.getElementById('missingSkills'), data.missing_skills, false);
+
+                    // Display recommendations
+                    const recommendations = document.getElementById('recommendations');
+                    const experienceList = recommendations.querySelector('.experience-recommendations');
+                    const skillsList = recommendations.querySelector('.skills-recommendations');
+                    const projectsList = recommendations.querySelector('.projects-recommendations');
+
+                    // Clear previous recommendations
+                    experienceList.innerHTML = '';
+                    skillsList.innerHTML = '';
+                    projectsList.innerHTML = '';
+
+                    // Add new recommendations
+                    if (data.recommendations) {
+                        data.recommendations.forEach(rec => {
+                            const listItem = document.createElement('li');
+                            listItem.className = 'recommendation-item bg-gray-50 p-4 rounded-lg hover:bg-gray-100 transition duration-200';
+                            
+                            // Create the main suggestion
+                            const suggestionDiv = document.createElement('div');
+                            suggestionDiv.className = 'font-medium text-gray-800 mb-3';
+                            suggestionDiv.textContent = rec.suggestion;
+                            
+                            // Create the skills list
+                            const skillsDiv = document.createElement('div');
+                            skillsDiv.className = 'flex flex-wrap gap-2 mb-3';
+                            skillsDiv.innerHTML = rec.skills.map(skill => `
+                                <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-sm hover:bg-blue-200 transition duration-200">
+                                    ${skill}
+                                </span>
+                            `).join('');
+                            
+                            // Create the examples list
+                            const examplesDiv = document.createElement('div');
+                            examplesDiv.className = 'mt-3 space-y-2 text-sm text-gray-600';
+                            examplesDiv.innerHTML = `
+                                <div class="font-medium text-gray-700 mb-2">
+                                    <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>Try these examples:
+                                </div>
+                                <ul class="space-y-2 ml-4">
+                                    ${rec.examples.map(example => `
+                                        <li class="list-disc list-outside">${example}</li>
+                                    `).join('')}
+                                </ul>
+                            `;
+                            
+                            // Assemble the recommendation
+                            listItem.appendChild(suggestionDiv);
+                            listItem.appendChild(skillsDiv);
+                            listItem.appendChild(examplesDiv);
+                            
+                            // Add to the appropriate section
+                            const sectionList = recommendations.querySelector(`.${rec.section.toLowerCase()}-recommendations`);
+                            if (sectionList) {
+                                sectionList.appendChild(listItem);
+                            }
+                        });
+                    }
+
+                    // Show sections only if they have recommendations
+                    const sections = recommendations.querySelectorAll('.recommendation-section');
+                    sections.forEach(section => {
+                        const list = section.querySelector('ul');
+                        section.style.display = list.children.length > 0 ? 'block' : 'none';
+                    });
+
+                    // Add default message if no recommendations
+                    if (!data.recommendations || data.recommendations.length === 0) {
+                        const defaultMessage = document.createElement('div');
+                        defaultMessage.className = 'text-center text-gray-600 py-6';
+                        defaultMessage.innerHTML = `
+                            <i class="fas fa-check-circle text-green-500 text-3xl mb-3"></i>
+                            <p class="text-lg">Great job! Your resume matches well with this job description.</p>
+                            <p class="text-sm mt-2">Keep your skills updated and continue gaining relevant experience.</p>
+                        `;
+                        recommendations.appendChild(defaultMessage);
+                    }
+
+                    results.classList.remove('hidden');
+                } else {
+                    alert(data.error || 'An error occurred while analyzing your resume');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while analyzing your resume');
+            } finally {
+                loading.classList.add('hidden');
+            }
+        });
+
+        // Handle chat form submission
+        document.getElementById('chatForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message || !resumeData) {
+                if (!resumeData) {
+                    alert('Please analyze your resume first before using the chat feature.');
+                }
+                return;
+            }
+            
+            // Add user message to chat
+            addMessageToChat('user', message);
+            input.value = '';
+            
+            try {
+                // Show loading state
+                const loadingMessage = addMessageToChat('bot', 'Thinking...', true);
+                
+                // Send message to backend
+                const response = await fetch('/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: message,
+                        resume_data: resumeData
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Chat request failed');
+                }
+                
+                const data = await response.json();
+                
+                // Remove loading message
+                loadingMessage.remove();
+                
+                // Add bot response
+                if (data.error) {
+                    addMessageToChat('bot', 'Sorry, I encountered an error. Please try again.');
+                } else {
+                    addMessageToChat('bot', data.response);
+                }
+                
+            } catch (error) {
+                console.error('Chat error:', error);
+                addMessageToChat('bot', 'Sorry, I encountered an error. Please try again.');
+            }
+        });
+
+        function addMessageToChat(sender, message, isTemporary = false) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}-message ${isTemporary ? 'loading' : ''}`;
+            
+            const avatar = document.createElement('div');
+            avatar.className = `message-avatar ${sender}-avatar`;
+            avatar.innerHTML = `<i class="fas fa-${sender === 'user' ? 'user' : 'robot'}"></i>`;
+            
+            const content = document.createElement('div');
+            content.className = 'message-content';
+            content.innerHTML = `<p>${message}</p>`;
+            
+            messageDiv.appendChild(avatar);
+            messageDiv.appendChild(content);
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            return messageDiv;
+        }
+    </script>
+</body>
+</html> 
