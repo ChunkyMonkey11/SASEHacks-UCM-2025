@@ -27,68 +27,40 @@ Desired_Terminal_Output:
 """
 
 def read_pdf(file_path):
-    """
-    Reads a PDF file and returns its text content.
-    
-    Args:
-        file_path (str): Path to the PDF file
-        
-    Returns:
-        str: Text content of the PDF
-    """
+    """Read text content from a PDF file."""
     try:
-        # Check if file exists
         if not os.path.exists(file_path):
-            print(f"Error: File '{file_path}' does not exist")
+            print(f"DEBUG: PDF file not found at {file_path}")
             return None
             
-        # Open and read the PDF
         with open(file_path, 'rb') as file:
             pdf_reader = PyPDF2.PdfReader(file)
-            
-            # Get number of pages
-            num_pages = len(pdf_reader.pages)
-            print(f"Number of pages: {num_pages}")
-            
-            # Extract text from all pages
             text = ""
             for page in pdf_reader.pages:
                 text += page.extract_text()
-                
+            print(f"DEBUG: Successfully read PDF. Text length: {len(text)} characters")
             return text
             
     except Exception as e:
-        print(f"Error reading PDF: {str(e)}")
+        print(f"DEBUG: Error reading PDF: {str(e)}")
         return None
 
 def read_docx(file_path):
-    """
-    Reads a DOCX file and returns its text content.
-    
-    Args:
-        file_path (str): Path to the DOCX file
-        
-    Returns:
-        str: Text content of the DOCX
-    """
+    """Read text content from a DOCX file."""
     try:
-        # Check if file exists
         if not os.path.exists(file_path):
-            print(f"Error: File '{file_path}' does not exist")
+            print(f"DEBUG: DOCX file not found at {file_path}")
             return None
             
-        # Open and read the DOCX
         doc = docx.Document(file_path)
-        
-        # Extract text from all paragraphs
         text = ""
         for paragraph in doc.paragraphs:
             text += paragraph.text + "\n"
-            
+        print(f"DEBUG: Successfully read DOCX. Text length: {len(text)} characters")
         return text
             
     except Exception as e:
-        print(f"Error reading DOCX: {str(e)}")
+        print(f"DEBUG: Error reading DOCX: {str(e)}")
         return None
 
 def scrape_job_posting(url):
@@ -138,6 +110,15 @@ def scrape_job_posting(url):
             'qualifications-section',
             'about-the-role',
             'role-overview'
+
+            # Handshake specific
+            'Key Responsibilities',
+            'Key Requirements',
+            'Key Qualifications',
+            'Key Skills',
+            'Key Competencies',
+            'Key Responsibilities',
+            'Key Requirements',
         ]
         
         # First try to find by class name
@@ -179,16 +160,20 @@ def scrape_job_posting(url):
         return f"Error processing the job posting: {str(e)}"
 
 def extract_technical_terms(text):
-    """Extract potential technical terms from text using NLP techniques."""
+    """Extract technical terms from text using NLP techniques."""
     if not text:
+        print("DEBUG: No text provided to extract_technical_terms")
         return []
     
     # Tokenize and clean the text
     tokens = word_tokenize(text.lower())
+    print(f"DEBUG: Initial token count: {len(tokens)}")
+    
     stop_words = set(stopwords.words('english'))
     
     # Remove stopwords and non-alphabetic tokens
     tokens = [token for token in tokens if token.isalpha() and token not in stop_words]
+    print(f"DEBUG: Token count after removing stopwords: {len(tokens)}")
     
     # Create a set to store both original and lemmatized forms
     technical_terms = set()
@@ -201,6 +186,8 @@ def extract_technical_terms(text):
         if lemmatized != token:  # Only add lemmatized form if it's different
             technical_terms.add(lemmatized)
     
+    print(f"DEBUG: Unique technical terms before POS tagging: {len(technical_terms)}")
+    
     # Get parts of speech
     pos_tags = nltk.pos_tag(list(technical_terms))
     
@@ -209,29 +196,36 @@ def extract_technical_terms(text):
     
     # Look for noun phrases and technical terms
     for i, (word, tag) in enumerate(pos_tags):
-        # Single technical terms (nouns)
-        if tag.startswith('NN'):
+        # Single technical terms (nouns and adjectives)
+        if tag.startswith('NN') or tag.startswith('JJ'):
             final_terms.append(word)
         
         # Compound technical terms (e.g., "machine learning")
         if i < len(pos_tags) - 1:
             next_word, next_tag = pos_tags[i + 1]
-            if tag.startswith('NN') and next_tag.startswith('NN'):
+            if (tag.startswith('NN') or tag.startswith('JJ')) and (next_tag.startswith('NN') or next_tag.startswith('JJ')):
                 final_terms.append(f"{word} {next_word}")
     
+    print(f"DEBUG: Final technical terms count: {len(final_terms)}")
+    print(f"DEBUG: Sample of technical terms: {final_terms[:5]}")
     return final_terms
 
 def find_required_skills(job_description):
     """Extract required skills from job description."""
+    print(f"DEBUG: Job description length: {len(job_description)} characters")
+    
     # Extract technical terms
     technical_terms = extract_technical_terms(job_description)
     
     # Count frequency of terms
     term_frequency = Counter(technical_terms)
     
-    # Filter and sort by frequency
-    required_skills = [(term, freq) for term, freq in term_frequency.items() if freq >= 2]
+    # Filter and sort by frequency - now including terms that appear at least once
+    required_skills = [(term, freq) for term, freq in term_frequency.items() if freq >= 1]
     required_skills.sort(key=lambda x: x[1], reverse=True)
+    
+    print(f"DEBUG: Required skills count: {len(required_skills)}")
+    print(f"DEBUG: Required skills with frequencies: {required_skills[:5]}")
     
     return [skill for skill, _ in required_skills]
 
@@ -244,15 +238,36 @@ SKILL_SYNONYMS = {
     'machine learning': ['ml', 'deep learning', 'ai'],
     'artificial intelligence': ['ai', 'machine learning'],
     'amazon web services': ['aws', 'amazon cloud'],
+    'data science': ['data analysis', 'data analytics'],
+    'web development': ['web dev', 'frontend', 'backend'],
+    'software engineering': ['software development', 'programming'],
+    'cloud computing': ['cloud', 'cloud services'],
+    'database': ['db', 'databases'],
+    'sql': ['mysql', 'postgresql', 'mongodb'],
+    'react': ['reactjs', 'react.js'],
+    'node.js': ['nodejs', 'node'],
+    'git': ['github', 'gitlab'],
+    'docker': ['container', 'containers'],
+    'kubernetes': ['k8s', 'container orchestration'],
+    'agile': ['scrum', 'kanban'],
+    'rest api': ['rest', 'api', 'apis'],
+    'microservices': ['microservice', 'microservice architecture'],
+    'ci/cd': ['continuous integration', 'continuous deployment', 'devops']
 }
 
 def match_resume_skills(resume_text, required_skills):
     """Match resume skills against required skills from job posting."""
     if not resume_text:
+        print("DEBUG: No resume text provided")
         return []
+    
+    print(f"DEBUG: Resume text length: {len(resume_text)} characters")
     
     # Extract technical terms from resume
     resume_terms = extract_technical_terms(resume_text)
+    
+    print(f"DEBUG: Resume technical terms count: {len(resume_terms)}")
+    print(f"DEBUG: Sample of resume technical terms: {resume_terms[:5]}")
     
     # Find matches
     matched_skills = []
@@ -260,6 +275,7 @@ def match_resume_skills(resume_text, required_skills):
         # Direct match
         if skill in resume_terms:
             matched_skills.append(skill)
+            print(f"DEBUG: Direct match found: {skill}")
             continue
             
         # Synonym match
@@ -267,8 +283,18 @@ def match_resume_skills(resume_text, required_skills):
             for synonym in SKILL_SYNONYMS[skill]:
                 if synonym in resume_terms:
                     matched_skills.append(skill)
+                    print(f"DEBUG: Synonym match found: {skill} (synonym: {synonym})")
+                    break
+        # Partial match (e.g., "python" in "python programming")
+        else:
+            for term in resume_terms:
+                if skill in term or term in skill:
+                    matched_skills.append(skill)
+                    print(f"DEBUG: Partial match found: {skill} (in term: {term})")
                     break
     
+    print(f"DEBUG: Total matched skills: {len(matched_skills)}")
+    print(f"DEBUG: Matched skills: {matched_skills}")
     return matched_skills
 
 def analyze_job_posting(url):
@@ -284,7 +310,7 @@ def analyze_job_posting(url):
     print("\nRequired Skills (extracted from job posting):")
     for skill in required_skills:
         print(f"- {skill}")
-    print(f"\n Amount of skills extracted: {len(required_skills)}")
+    print(f"\nAmount of skills extracted: {len(required_skills)}")
     return required_skills
 
 def analyze_resume(resume_path, required_skills):
@@ -343,7 +369,7 @@ def detect_skill_level(context):
 
 def main():
     # Example usage
-    job_url = "https://www.linkedin.com/jobs/view/4193717139/?alternateChannel=search&refId=sY8swhpNxLDD7k6seEKuug%3D%3D&trackingId=py1Iv3LI9%2FD8PxzrnBpKhA%3D%3D"  # Replace with actual job posting URL
+    job_url = "https://app.joinhandshake.com/stu/postings"  # Replace with actual job posting URL
     resume_path = "/Users/revantpatel/Downloads/TestResume.pdf"  # Replace with actual resume path
     
     # First analyze the job posting to get required skills
@@ -355,3 +381,12 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+"""
+Desired_Terminal_Output:
+    (Print) Analyzing job posting from: https://www.linkedin.com/jobs/view/4193717139/?alternateChannel=search&refId=sY8swhpNxLDD7k6seEKuug%3D%3D&trackingId=py1Iv3LI9%2FD8PxzrnBpKhA%3D%3D
+    (Print) Analyzing resume from: /Users/revantpatel/Downloads/TestResume.pdf
+    (Print) Job and Resume Match Percentage: 100.0%
+    (Print) Matched Skills in Resume:
+    (Print) Skills Missing from Resume:
+"""
