@@ -13,9 +13,10 @@ import os
 from difflib import SequenceMatcher
 
 # Download required NLTK data
-    # nltk.download('punkt')
-    # nltk.download('stopwords')
-    # nltk.download('averaged_perceptron_tagger')
+nltk.download('punkt', quiet=True)
+nltk.download('stopwords', quiet=True)
+nltk.download('wordnet', quiet=True)
+nltk.download('averaged_perceptron_tagger', quiet=True)
 
 """
 Desired_Terminal_Output:
@@ -161,73 +162,172 @@ def scrape_job_posting(url):
 
 def extract_technical_terms(text):
     """Extract technical terms from text using NLP techniques."""
-    if not text:
-        print("DEBUG: No text provided to extract_technical_terms")
-        return []
-    
-    # Tokenize and clean the text
+    # Tokenize and clean text
     tokens = word_tokenize(text.lower())
-    print(f"DEBUG: Initial token count: {len(tokens)}")
-    
     stop_words = set(stopwords.words('english'))
     
-    # Remove stopwords and non-alphabetic tokens
-    tokens = [token for token in tokens if token.isalpha() and token not in stop_words]
-    print(f"DEBUG: Token count after removing stopwords: {len(tokens)}")
+    # Remove stopwords and punctuation
+    tokens = [token for token in tokens if token.isalnum() and token not in stop_words]
     
-    # Create a set to store both original and lemmatized forms
-    technical_terms = set()
+    # Lemmatize tokens
     lemmatizer = WordNetLemmatizer()
+    tokens = [lemmatizer.lemmatize(token) for token in tokens]
     
-    # Add both original and lemmatized forms
-    for token in tokens:
-        technical_terms.add(token)  # Add original form
-        lemmatized = lemmatizer.lemmatize(token)
-        if lemmatized != token:  # Only add lemmatized form if it's different
-            technical_terms.add(lemmatized)
-    
-    print(f"DEBUG: Unique technical terms before POS tagging: {len(technical_terms)}")
-    
-    # Get parts of speech
-    pos_tags = nltk.pos_tag(list(technical_terms))
+    # Common technical skills and qualifications
+    common_skills = {
+        'communication', 'leadership', 'management', 'analysis', 'research',
+        'project management', 'teamwork', 'problem solving', 'organization',
+        'planning', 'coordination', 'development', 'implementation',
+        'technical', 'professional', 'administrative', 'strategic',
+        'analytical', 'critical thinking', 'data analysis', 'reporting',
+        'documentation', 'training', 'mentoring', 'supervision',
+        'budgeting', 'forecasting', 'evaluation', 'assessment',
+        'collaboration', 'innovation', 'creativity', 'adaptability',
+        'flexibility', 'initiative', 'independence', 'reliability',
+        'attention to detail', 'time management', 'multitasking',
+        'presentation', 'negotiation', 'decision making'
+    }
     
     # Extract potential technical terms
-    final_terms = []
+    technical_terms = set()
     
-    # Look for noun phrases and technical terms
-    for i, (word, tag) in enumerate(pos_tags):
-        # Single technical terms (nouns and adjectives)
-        if tag.startswith('NN') or tag.startswith('JJ'):
-            final_terms.append(word)
-        
-        # Compound technical terms (e.g., "machine learning")
-        if i < len(pos_tags) - 1:
-            next_word, next_tag = pos_tags[i + 1]
-            if (tag.startswith('NN') or tag.startswith('JJ')) and (next_tag.startswith('NN') or next_tag.startswith('JJ')):
-                final_terms.append(f"{word} {next_word}")
+    # Add single word terms
+    for token in tokens:
+        if len(token) > 2:  # Skip very short words
+            technical_terms.add(token)
     
-    print(f"DEBUG: Final technical terms count: {len(final_terms)}")
-    print(f"DEBUG: Sample of technical terms: {final_terms[:5]}")
-    return final_terms
+    # Add multi-word terms
+    text_lower = text.lower()
+    for skill in common_skills:
+        if skill in text_lower:
+            technical_terms.add(skill)
+    
+    return list(technical_terms)
 
-def find_required_skills(job_description):
-    """Extract required skills from job description."""
-    print(f"DEBUG: Job description length: {len(job_description)} characters")
+def find_required_skills(text):
+    """Find required skills from job description with importance weights."""
+    # Define sections and their weights
+    sections = {
+        "CRITICAL KNOWLEDGE AND SKILLS": 1.0,
+        "Required Qualifications": 1.0,
+        "Preferred Qualifications": 0.7,
+        "KEY RESPONSIBILITIES": 0.8,
+        "EDUCATION and EXPERIENCE": 0.6
+    }
     
-    # Extract technical terms
-    technical_terms = extract_technical_terms(job_description)
+    # Extract skills from each section
+    skills = {}  # Dictionary to store skills and their weights
+    text_lower = text.lower()
     
-    # Count frequency of terms
-    term_frequency = Counter(technical_terms)
+    # Common skill indicators and their weights
+    skill_indicators = {
+        "must have": 1.0,
+        "required": 1.0,
+        "critical": 1.0,
+        "essential": 1.0,
+        "knowledge of": 0.8,
+        "experience with": 0.8,
+        "proficiency in": 0.8,
+        "ability to": 0.7,
+        "skills in": 0.7,
+        "expertise in": 0.7,
+        "familiarity with": 0.6,
+        "understanding of": 0.6,
+        "competency in": 0.6,
+        "background in": 0.6,
+        "nice to have": 0.5,
+        "preferred": 0.5
+    }
     
-    # Filter and sort by frequency - now including terms that appear at least once
-    required_skills = [(term, freq) for term, freq in term_frequency.items() if freq >= 1]
-    required_skills.sort(key=lambda x: x[1], reverse=True)
+    # Technical and professional skills with base weights
+    common_skills = {
+        # Software and Technical Skills
+        'microsoft office': 0.8, 'excel': 0.8, 'word': 0.8, 'powerpoint': 0.8,
+        'database': 0.8, 'gps': 0.8, 'fleet management': 0.9, 'data analysis': 0.9,
+        'reporting': 0.8, 'spreadsheet': 0.8,
+        
+        # Business and Administrative Skills
+        'administration': 0.8, 'management': 0.9, 'coordination': 0.8,
+        'organization': 0.8, 'documentation': 0.7, 'communication': 0.9,
+        'interpersonal': 0.8, 'leadership': 0.9, 'problem solving': 0.9,
+        'critical thinking': 0.9, 'time management': 0.8, 'project management': 0.9,
+        'customer service': 0.8, 'analysis': 0.8,
+        
+        # Specific Domain Knowledge
+        'vehicle maintenance': 0.9, 'fleet operations': 0.9, 'transportation': 0.8,
+        'fuel systems': 0.8, 'cost analysis': 0.8, 'inventory management': 0.8,
+        'compliance': 0.9, 'regulations': 0.8, 'safety': 0.9, 'insurance': 0.8,
+        
+        # Soft Skills
+        'teamwork': 0.8, 'collaboration': 0.8, 'attention to detail': 0.9,
+        'multi-tasking': 0.7, 'verbal communication': 0.8, 'written communication': 0.8,
+        'active listening': 0.7, 'independent work': 0.7
+    }
     
-    print(f"DEBUG: Required skills count: {len(required_skills)}")
-    print(f"DEBUG: Required skills with frequencies: {required_skills[:5]}")
+    # Extract skills from text
+    for section, section_weight in sections.items():
+        section_pos = text.find(section)
+        if section_pos != -1:
+            # Get text after section header until next section or end
+            next_section_pos = len(text)  # Default to end of text
+            for next_section in sections:
+                pos = text.find(next_section, section_pos + len(section))
+                if pos != -1 and pos < next_section_pos:
+                    next_section_pos = pos
+            
+            section_text = text[section_pos:next_section_pos].lower()
+            
+            # Look for skills after skill indicators
+            for indicator, indicator_weight in skill_indicators.items():
+                pos = 0
+                while True:
+                    pos = section_text.find(indicator, pos)
+                    if pos == -1:
+                        break
+                    
+                    # Extract the text after the indicator until the next punctuation
+                    start = pos + len(indicator)
+                    end = start
+                    while end < len(section_text) and section_text[end] not in '.,:;':
+                        end += 1
+                    
+                    skill = section_text[start:end].strip()
+                    if skill:
+                        # Calculate weight based on section and indicator
+                        weight = section_weight * indicator_weight
+                        # If skill already exists, take the higher weight
+                        if skill in skills:
+                            skills[skill] = max(skills[skill], weight)
+                        else:
+                            skills[skill] = weight
+                    
+                    pos = end
     
-    return [skill for skill, _ in required_skills]
+    # Add common skills if they appear in the text
+    for skill, base_weight in common_skills.items():
+        if skill in text_lower:
+            # Count occurrences to adjust weight
+            occurrences = text_lower.count(skill)
+            weight = base_weight * (1 + 0.1 * min(occurrences - 1, 3))  # Cap at 4x base weight
+            if skill in skills:
+                skills[skill] = max(skills[skill], weight)
+            else:
+                skills[skill] = weight
+    
+    # Clean up skills
+    cleaned_skills = {}
+    for skill, weight in skills.items():
+        # Remove common words and clean up the skill
+        words = skill.split()
+        words = [w for w in words if w not in {'a', 'an', 'the', 'and', 'or', 'in', 'on', 'at', 'to', 'for', 'of', 'with'}]
+        if words:
+            cleaned_skill = ' '.join(words)
+            if cleaned_skill in cleaned_skills:
+                cleaned_skills[cleaned_skill] = max(cleaned_skills[cleaned_skill], weight)
+            else:
+                cleaned_skills[cleaned_skill] = weight
+    
+    return cleaned_skills
 
 def similarity_score(a, b):
     return SequenceMatcher(None, a, b).ratio()
@@ -255,47 +355,42 @@ SKILL_SYNONYMS = {
     'ci/cd': ['continuous integration', 'continuous deployment', 'devops']
 }
 
-def match_resume_skills(resume_text, required_skills):
-    """Match resume skills against required skills from job posting."""
-    if not resume_text:
-        print("DEBUG: No resume text provided")
-        return []
+def match_resume_skills(resume_skills, required_skills):
+    """Match skills from resume against required skills from job posting with weights."""
+    matched_skills = {}  # Dictionary to store matched skills and their weights
+    missing_skills = {}  # Dictionary to store missing skills and their weights
     
-    print(f"DEBUG: Resume text length: {len(resume_text)} characters")
+    # Convert all skills to lowercase for comparison
+    resume_skills = [skill.lower() for skill in resume_skills]
     
-    # Extract technical terms from resume
-    resume_terms = extract_technical_terms(resume_text)
-    
-    print(f"DEBUG: Resume technical terms count: {len(resume_terms)}")
-    print(f"DEBUG: Sample of resume technical terms: {resume_terms[:5]}")
-    
-    # Find matches
-    matched_skills = []
-    for skill in required_skills:
-        # Direct match
-        if skill in resume_terms:
-            matched_skills.append(skill)
-            print(f"DEBUG: Direct match found: {skill}")
-            continue
-            
-        # Synonym match
-        if skill in SKILL_SYNONYMS:
-            for synonym in SKILL_SYNONYMS[skill]:
-                if synonym in resume_terms:
-                    matched_skills.append(skill)
-                    print(f"DEBUG: Synonym match found: {skill} (synonym: {synonym})")
-                    break
-        # Partial match (e.g., "python" in "python programming")
+    # Direct matches and weighted scoring
+    for skill, weight in required_skills.items():
+        skill_lower = skill.lower()
+        if skill_lower in resume_skills:
+            matched_skills[skill] = weight
         else:
-            for term in resume_terms:
-                if skill in term or term in skill:
-                    matched_skills.append(skill)
-                    print(f"DEBUG: Partial match found: {skill} (in term: {term})")
+            # Check for partial matches
+            found_match = False
+            for resume_skill in resume_skills:
+                if skill_lower in resume_skill or resume_skill in skill_lower:
+                    # Partial match gets 80% of the weight
+                    matched_skills[skill] = weight * 0.8
+                    found_match = True
                     break
+            
+            # Check synonyms
+            if not found_match and skill_lower in SKILL_SYNONYMS:
+                for synonym in SKILL_SYNONYMS[skill_lower]:
+                    if synonym in resume_skills:
+                        # Synonym match gets 90% of the weight
+                        matched_skills[skill] = weight * 0.9
+                        found_match = True
+                        break
+            
+            if not found_match:
+                missing_skills[skill] = weight
     
-    print(f"DEBUG: Total matched skills: {len(matched_skills)}")
-    print(f"DEBUG: Matched skills: {matched_skills}")
-    return matched_skills
+    return matched_skills, missing_skills
 
 def analyze_job_posting(url):
     """Analyze a job posting and extract required skills."""
@@ -313,29 +408,55 @@ def analyze_job_posting(url):
     print(f"\nAmount of skills extracted: {len(required_skills)}")
     return required_skills
 
-def analyze_resume(resume_path, required_skills):
-    """Analyze a resume against required skills from job posting."""
-    # Determine file type and read content
+def analyze_resume(resume_path, job_description_path):
+    """Analyze resume against job description."""
+    print(f"\nAnalyzing resume: {os.path.basename(resume_path)}")
+    
+    # Read job description
+    try:
+        with open(job_description_path, 'r', encoding='utf-8') as file:
+            job_description = file.read()
+    except FileNotFoundError:
+        print(f"Error: Job description file not found at {job_description_path}")
+        return
+    
+    # Extract required skills from job description
+    required_skills = find_required_skills(job_description)
+    print("\nRequired Skills from Job Description (with importance weights):")
+    for skill, weight in required_skills.items():
+        print(f"- {skill} (Weight: {weight:.2f})")
+    
+    # Read and analyze resume
+    text = None
     if resume_path.lower().endswith('.pdf'):
         text = read_pdf(resume_path)
     elif resume_path.lower().endswith('.docx'):
         text = read_docx(resume_path)
-    else:
-        print("Unsupported file format. Please use PDF or DOCX files.")
-        return
     
     if text:
-        matched_skills = match_resume_skills(text, required_skills)
-        print("\nMatched Skills in Resume:")
-        for skill in matched_skills:
-            print(f"- {skill}")
+        # Extract skills from resume
+        resume_skills = extract_technical_terms(text)
         
-        # Calculate match percentage
-        if required_skills:
-            match_percentage = (len(matched_skills) / len(required_skills)) * 100
-            print(f"\nMatch Percentage: {match_percentage:.1f}%")
+        # Match skills
+        matched_skills, missing_skills = match_resume_skills(resume_skills, required_skills)
+        
+        # Calculate weighted match percentage
+        total_weight = sum(required_skills.values())
+        matched_weight = sum(matched_skills.values())
+        match_percentage = (matched_weight / total_weight * 100) if total_weight > 0 else 0
+        
+        # Display results
+        print(f"\nSkill Match Score: {match_percentage:.1f}%")
+        
+        print("\nMatched Skills in Resume:")
+        for skill, weight in matched_skills.items():
+            print(f"✓ {skill} (Weight: {weight:.2f})")
+        
+        print("\nSkills Missing from Resume:")
+        for skill, weight in missing_skills.items():
+            print(f"✗ {skill} (Weight: {weight:.2f})")
     else:
-        print("Failed to extract text from the resume.")
+        print("Error: Could not read resume file")
 
 def extract_skill_context(text, skill):
     """Extract sentences containing the skill"""
@@ -368,16 +489,12 @@ def detect_skill_level(context):
     return 'mentioned'
 
 def main():
-    # Example usage
-    job_url = "https://app.joinhandshake.com/stu/postings"  # Replace with actual job posting URL
-    resume_path = "/Users/revantpatel/Downloads/TestResume.pdf"  # Replace with actual resume path
+    # File paths
+    resume_path = "C:/Users/epicg/Downloads/Mikey_Mubako_-_Part_time_Resume_updated.docx-220240722-23-ebn98120240722-23-447pch.pdf"
+    job_description_path = "job_description.txt"
     
-    # First analyze the job posting to get required skills
-    required_skills = analyze_job_posting(job_url)
-    
-    if required_skills:
-        # Then analyze the resume against these skills
-        analyze_resume(resume_path, required_skills)
+    # Analyze resume against job description
+    analyze_resume(resume_path, job_description_path)
 
 if __name__ == "__main__":
     main()
