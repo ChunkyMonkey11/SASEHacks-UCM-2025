@@ -1,34 +1,8 @@
-2025-04-06 15:56:40,418 - __main__ - INFO - Upload folder created/verified at: /Users/revantpatel/SASEHacks-UCM-2025-1/uploads
-2025-04-06 15:56:40,426 - werkzeug - WARNING -  * Running on all addresses.
+2025-04-06 16:57:34,522 - __main__ - INFO - Upload folder created/verified at: /Users/revantpatel/SASEHacks-UCM-2025-1/uploads
+2025-04-06 16:57:34,532 - werkzeug - WARNING -  * Running on all addresses.
    WARNING: This is a development server. Do not use it in a production deployment.
-2025-04-06 15:56:40,426 - werkzeug - INFO -  * Running on http://10.34.93.197:8080/ (Press CTRL+C to quit)
-2025-04-06 15:56:40,427 - werkzeug - INFO -  * Restarting with stat
-2025-04-06 15:56:43,231 - __main__ - INFO - Upload folder created/verified at: /Users/revantpatel/SASEHacks-UCM-2025-1/uploads
-2025-04-06 15:56:43,247 - werkzeug - WARNING -  * Debugger is active!
-2025-04-06 15:56:43,267 - werkzeug - INFO -  * Debugger PIN: 808-943-678
-2025-04-06 15:58:10,754 - werkzeug - INFO - 10.34.93.197 - - [06/Apr/2025 15:58:10] "GET / HTTP/1.1" 200 -
-2025-04-06 15:58:21,669 - __main__ - DEBUG - Starting resume analysis
-2025-04-06 15:58:21,672 - __main__ - DEBUG - Saving file to: uploads/Revant_Patel_Resume_1.pdf
-2025-04-06 15:58:21,673 - __main__ - DEBUG - File saved successfully at: uploads/Revant_Patel_Resume_1.pdf
-2025-04-06 15:58:21,709 - __main__ - DEBUG - Successfully extracted text. Length: 2965
-2025-04-06 15:58:21,710 - __main__ - DEBUG - Cleaned up uploaded file
-2025-04-06 15:58:22,427 - __main__ - DEBUG - Analysis complete. Results: {'match_percentage': 45.4, 'semantic_similarity': np.float64(27.6), 'matched_skills': {'collaboration': 0.7999999999999999, 'node.js': 0.7999999999999999, 'go': 0.8999999999999999, 'engineering': 0.6702352941176472, 'testing': 0.7999999999999999, 'react': 1.0, 'express': 0.7999999999999999}, 'missing_skills': {'Programming Languages': [{'skill': 'java', 'weight': 1.3499999999999999, 'is_critical': True, 'feedback': 'Critical skill missing - Consider adding this to your resume'}, {'skill': 'javascript', 'weight': 1.3499999999999999, 'is_critical': True, 'feedback': 'Critical skill missing - Consider adding this to your resume'}, {'skill': 'mongodb', 'weight': 0.7999999999999999, 'is_critical': False, 'feedback': 'Skill not found in resume - Consider adding if you have this experience'}], 'Web Development': [], 'Databases': [], 'Cloud & DevOps': [{'skill': 'aws', 'weight': 1.2, 'is_critical': True, 'feedback': 'Critical skill missing - Consider adding this to your resume'}, {'skill': 'git', 'weight': 1.2, 'is_critical': True, 'feedback': 'Critical skill missing - Consider adding this to your resume'}], 'Software Development': [], 'AI & Data': [], 'Soft Skills': []}, 'recommendations': [{'section': 'General', 'suggestion': 'Improve overall resume alignment with the job description', 'skills': ['Programming Languages', 'Web Development', 'Databases'], 'examples': ['• Use industry-standard terminology from the job description', '• Quantify your achievements with metrics and numbers', '• Focus on relevant experience and projects']}, {'section': 'Keywords', 'suggestion': 'Optimize your resume with relevant keywords', 'skills': ['collaboration', 'node.js', 'go', 'software engineering', 'java'], 'examples': ['• Include key terms from the job description naturally in your bullet points', '• Use similar language and terminology as the job posting', '• Highlight technologies and tools mentioned in the requirements']}]}
-2025-04-06 15:58:22,428 - werkzeug - INFO - 10.34.93.197 - - [06/Apr/2025 15:58:22] "POST /analyze HTTP/1.1" 200 -
-2025-04-06 15:58:31,291 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): openrouter.ai:443
-2025-04-06 15:58:31,668 - urllib3.connectionpool - DEBUG - https://openrouter.ai:443 "POST /api/v1/chat/completions HTTP/1.1" 200 None
-2025-04-06 15:58:34,540 - werkzeug - INFO - 10.34.93.197 - - [06/Apr/2025 15:58:34] "POST /chat HTTP/1.1" 200 -
-2025-04-06 16:00:43,759 - werkzeug - INFO - 10.34.93.197 - - [06/Apr/2025 16:00:43] "GET / HTTP/1.1" 200 -
-2025-04-06 16:00:56,058 - __main__ - DEBUG - Starting resume analysis
-2025-04-06 16:00:56,062 - __main__ - DEBUG - Saving file to: uploads/Revant_Patel_Resume_1.pdf
-2025-04-06 16:00:56,062 - __main__ - DEBUG - File saved successfully at: uploads/Revant_Patel_Resume_1.pdf
-2025-04-06 16:00:56,102 - __main__ - DEBUG - Successfully extracted text. Length: 2965
-2025-04-06 16:00:56,102 - __main__ - DEBUG - Cleaned up uploaded file
-2025-04-06 16:00:56,334 - __main__ - DEBUG - Analysis complete. Results: {'match_percentage': 45.4, 'semantic_similarity': np.float64(27.6), 'matched_skills': {'collaboration': 0.7999999999999999, 'node.js': 0.7999999999999999, 'go': 0.8999999999999999, 'engineering': 0.6702352941176472, 'testing': 0.7999999999999999, 'react': 1.0, 'express': 0.7999999999999999}, 'missing_skills': {'Programming Languages': [{'skill': 'java', 'weight': 1.3499999999999999, 'is_critical': True, 'feedback': 'Critical skill missing - Consider adding this to your resume'}, {'skill': 'javascript', 'weight': 1.3499999999999999, 'is_critical': True, 'feedback': 'Critical skill missing - Consider adding this to your resume'}, {'skill': 'mongodb', 'weight': 0.7999999999999999, 'is_critical': False, 'feedback': 'Skill not found in resume - Consider adding if you have this experience'}], 'Web Development': [], 'Databases': [], 'Cloud & DevOps': [{'skill': 'aws', 'weight': 1.2, 'is_critical': True, 'feedback': 'Critical skill missing - Consider adding this to your resume'}, {'skill': 'git', 'weight': 1.2, 'is_critical': True, 'feedback': 'Critical skill missing - Consider adding this to your resume'}], 'Software Development': [], 'AI & Data': [], 'Soft Skills': []}, 'recommendations': [{'section': 'General', 'suggestion': 'Improve overall resume alignment with the job description', 'skills': ['Programming Languages', 'Web Development', 'Databases'], 'examples': ['• Use industry-standard terminology from the job description', '• Quantify your achievements with metrics and numbers', '• Focus on relevant experience and projects']}, {'section': 'Keywords', 'suggestion': 'Optimize your resume with relevant keywords', 'skills': ['collaboration', 'node.js', 'go', 'software engineering', 'java'], 'examples': ['• Include key terms from the job description naturally in your bullet points', '• Use similar language and terminology as the job posting', '• Highlight technologies and tools mentioned in the requirements']}]}
-2025-04-06 16:00:56,334 - werkzeug - INFO - 10.34.93.197 - - [06/Apr/2025 16:00:56] "POST /analyze HTTP/1.1" 200 -
-2025-04-06 16:01:01,009 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): openrouter.ai:443
-2025-04-06 16:01:01,359 - urllib3.connectionpool - DEBUG - https://openrouter.ai:443 "POST /api/v1/chat/completions HTTP/1.1" 200 None
-2025-04-06 16:01:03,182 - werkzeug - INFO - 10.34.93.197 - - [06/Apr/2025 16:01:03] "POST /chat HTTP/1.1" 200 -
-2025-04-06 16:01:07,186 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): openrouter.ai:443
-2025-04-06 16:01:07,321 - urllib3.connectionpool - DEBUG - https://openrouter.ai:443 "POST /api/v1/chat/completions HTTP/1.1" 200 None
-2025-04-06 16:01:11,211 - werkzeug - INFO - 10.34.93.197 - - [06/Apr/2025 16:01:11] "POST /chat HTTP/1.1" 200 -
-2025-04-06 16:01:15,829 - werkzeug - INFO - 10.34.93.197 - - [06/Apr/2025 16:01:15] "GET / HTTP/1.1" 200 -
+2025-04-06 16:57:34,532 - werkzeug - INFO -  * Running on http://10.34.93.197:8080/ (Press CTRL+C to quit)
+2025-04-06 16:57:34,533 - werkzeug - INFO -  * Restarting with stat
+2025-04-06 16:57:35,875 - __main__ - INFO - Upload folder created/verified at: /Users/revantpatel/SASEHacks-UCM-2025-1/uploads
+2025-04-06 16:57:35,882 - werkzeug - WARNING -  * Debugger is active!
+2025-04-06 16:57:35,892 - werkzeug - INFO -  * Debugger PIN: 121-338-580
