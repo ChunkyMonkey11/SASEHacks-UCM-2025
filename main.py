@@ -44,7 +44,7 @@ def initialize_nltk():
 # Initialize NLTK when module is loaded
 initialize_nltk()
 
-# API KEY FOR OPENROUTER "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"
+
 def calculate_similarity(text1, text2):
     """Calculate semantic similarity between two texts using TF-IDF."""
     # Create a custom tokenizer that preserves technical terms
